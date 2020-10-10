@@ -15,21 +15,19 @@ paths:
       tags:
       - "goods"
       summary: "获取商品列表"
-      produces:
-      - "application/json"
       parameters:
       - in: "query"
         name: "search"
-        type : "string"
+        type : string
         description: "关键词"
       - in: "query"
         name: "price"
-        type : "string"
+        type : string
         # example: "100-150"
         description: "价格区间"
       - name: "sort"
         in: "query"
-        type: "string"
+        type: string
         default: comprehensive
         enum:
         - comprehensive
@@ -42,16 +40,16 @@ paths:
       - name: "page"
         in: "query"
         description: "页码"
-        type: "integer"
+        type: integer
         default: 1
       - name: "pageSize"
         in: "query"
         description: "每页数目"
-        type: "integer"
+        type: integer
         default: 30
       - name: "special"
         in: "query"
-        type: "string"
+        type: string
         description: "特殊商品"
         enum:
         - presale
@@ -59,11 +57,11 @@ paths:
         - hot
       - name: "brand"
         in: "query"
-        type: "string"
+        type: string
         description: "品牌ID"
       - name: "category"
         in: "query"
-        type: "string"
+        type: string
         description: "品类ID"
       responses:
         default:
@@ -79,14 +77,10 @@ paths:
       tags:
       - "goods"
       summary: "新增商品"
-      produces:
-      - "application/json"
-      consumes:
-      - "application/json"
       parameters:
       - in: "header"
         name: "authorization"
-        type: "string"
+        type: string
         required: true
         description: "用户Token"
       - in: "body"
@@ -109,17 +103,15 @@ paths:
       tags:
       - "goods"
       summary: "查询商品详情"
-      produces:
-      - "application/json"
       parameters:
       - in: "path"
         name: "id"
-        type: "integer"
+        type: integer
         required: true
         description: "商品ID"
       - in: "query"
         name: "time"
-        type: "string"
+        type: string
         description: "历史版本"
       responses:
         default:
@@ -130,19 +122,15 @@ paths:
       tags:
       - "goods"
       summary: "修改商品"
-      produces:
-      - "application/json"
-      consumes:
-      - "application/json"
       parameters:
       - in: "path"
         name: "id"
-        type: "integer"
+        type: integer
         required: true
         description: "商品ID"
       - in: "header"
         name: "authorization"
-        type: "string"
+        type: string
         required: true
         description: "用户Token"
       - in: "body"
@@ -165,17 +153,15 @@ paths:
       tags:
       - "goods"
       summary: "删除商品"
-      produces:
-      - "application/json"
       parameters:
       - in: "path"
         name: "id"
-        type: "integer"
+        type: integer
         required: true
         description: "商品ID"
       - in: "header"
         name: "authorization"
-        type: "string"
+        type: string
         required: true
         description: "用户Token"
       responses:
@@ -189,9 +175,9 @@ paths:
             type: "object"
             properties:
               errNo:
-                type: "integer"
+                type: integer
               errMsg: 
-                type: "string"
+                type: string
   /category:
     get:
       tags:
@@ -210,14 +196,14 @@ paths:
                 items:
                   properties:
                     id:
-                      type: "integer"
+                      type: integer
                       format: "int64"
                     name:
-                      type: "string"
+                      type: string
                     logoUrl:
-                      type: "string"
+                      type: string
                     description:
-                      type: "string"
+                      type: string
                     
     post:
       tags:
@@ -232,18 +218,18 @@ paths:
         name: "authorization"
         description: "用户 Token"
         required: true
-        type: "string"
+        type: string
       - in: "body"
         name: "body"
         required: true
         schema:
            properties:
             name:
-              type: "string"
+              type: string
             logoUrl:
-              type: "string"
+              type: string
             description:
-              type: "string"
+              type: string
       responses:
         "905":
           description: "品类已存在"
@@ -255,14 +241,14 @@ paths:
             type: "object"
             properties:
               id:
-                type: "integer"
+                type: integer
                 format: "int64"
               name:
-                type: "string"
+                type: string
               logoUrl:
-                type: "string"
+                type: string
               description:
-                type: "string"
+                type: string
   /category/{id}:
     put:
       tags:
@@ -277,23 +263,23 @@ paths:
         name: "authorization"
         description: "用户Token"
         required: true
-        type: "string"
+        type: string
       - in: "path"
         name: "id"
         description: "品牌ID"
         required: true
-        type: "integer"
+        type: integer
       - in: "body"
         name: "body"
         required: true
         schema:
           properties:
             name:
-              type: "string"
+              type: string
             logoUrl:
-              type: "string"
+              type: string
             description:
-              type: "string"
+              type: string
       responses:
         "907":
           description: "ID不存在"
@@ -305,14 +291,14 @@ paths:
             type: "object"
             properties:
               id:
-                type: "integer"
+                type: integer
                 format: "int64"
               name:
-                type: "string"
+                type: string
               logoUrl:
-                type: "string"
+                type: string
               description:
-                type: "string"
+                type: string
     delete:
       tags:
       - "category"
@@ -321,7 +307,7 @@ paths:
       - "application/json"
       parameters:
       - name: "authorization"
-        type: "string"
+        type: string
         in: "header"
         description: "用户Token"
         required: true
@@ -329,7 +315,7 @@ paths:
         in: "path"
         description: "品牌ID"
         required: true
-        type: "string"
+        type: string
       responses:
         "default":
           description: "成功"
@@ -337,9 +323,9 @@ paths:
             type: "object"
             properties:
               errNo:
-                type: "integer"
+                type: integer
               errMsg: 
-                type: "string"
+                type: string
         "912":
           description: "ID不存在"
 definitions:
@@ -347,40 +333,41 @@ definitions:
     type: "object"
     properties:
       id:
-        type: "integer"
+        type: integer
         format: "int64"
       name:
-        type: "string"
+        type: string
       price:
         type: "number"
       commentNumber:
-        type: "integer"
+        type: integer
       pictureUrl:
-        type: "string"
+        type: string
       store:
         type: "object"
         properties:
           id:
-            type: "integer"
+            type: integer
             format: "int64"
           name:
-            type: "string"
+            type: string
   GoodsDetailed:
     type: "object"
     properties:
       id:
-        type: "integer"
+        type: integer
         format: "int64"
       name:
-        type: "string"
+        type: string
       price:
         type: "number"
-      pictureUrl:
-        type: "string"
+      picture:
+        type: string
+        format: "url"
       description:
-        type: "string"
+        type: string
       stock:
-        type: "integer"
+        type: integer
       onShelf:
         type: "boolean"
       weight:
@@ -392,58 +379,63 @@ definitions:
         items:
           properties:
             id:
-              type: "integer"
+              type: integer
               format: "int64"
             name:
-              type: "string"
+              type: string
       brands:
         type: "array"
         items:
           properties:
             id:
-              type: "integer"
+              type: integer
               format: "int64"
             name:
-              type: "string"
+              type: string
       store:
         type: "object"
         properties:
           id:
-            type: "integer"
+            type: integer
             format: "int64"
           name:
-            type: "string"
+            type: string
       commentNumber:
-        type: "integer"
+        type: integer
       spType:
-        type: "string"
+        type: string
+        enum:
+        - normal
+        - presale
+        - groupon
+        - hot
       spBeginTime:
-        type: "string"
+        type: string
       spEndTime:
-        type: "string"
+        type: string
       spPrice:
-        type: "string"
+        type: string
       preFinalBegin:
-        type: "string"
+        type: string
       preFinalEnd:
-        type: "string"
+        type: string
       hotLimit:
-        type: "integer"
+        type: integer
       groupRule:
-        type: "string"
+        type: string
   GoodsEditable:
     type: "object"
     properties:
       name:
-        type: "string"
+        type: string
       price:
         type: "number"
       stock:
-        type: "integer"
+        type: integer
       pictureUrl:
-        type: "string"
+        type: string
       description:
-        type: "string"
+        type: string
       onShelf:
         type: "boolean"
       weight:
@@ -455,28 +447,28 @@ definitions:
         items:
           properties:
             id:
-              type: "integer"
+              type: integer
               format: "int64"
       categories:
         type: "array"
         items:
           properties:
             id:
-              type: "integer"
+              type: integer
               format: "int64"
       spType:
-        type: "string"
+        type: string
       spBeginTime:
-        type: "string"
+        type: string
       spEndTime:
-        type: "string"
+        type: string
       spPrice:
-        type: "string"
+        type: string
       preFinalBegin:
-        type: "string"
+        type: string
       preFinalEnd:
-        type: "string"
+        type: string
       hotLimit:
-        type: "integer"
+        type: integer
       groupRule:
-        type: "string"
+        type: string

@@ -27,7 +27,7 @@ paths:
         - in: query
           name: price
           type: string
-          # example: "100-150"
+          # example: 100-150
           description: 价格区间
         - in: query
           name: sort
@@ -94,16 +94,16 @@ paths:
           name: authorization
           type: string
           required: true
-          description: 用户Token
+          description: Token
         - in: body
           required: true
           name: body
           schema:
             $ref: "#/definitions/GoodsWritable"
       responses:
-        907:
+        901:
           description: 非法的商品属性
-        923:
+        902:
           description: 操作权限不足
         default:
           description: 商品详情
@@ -134,7 +134,7 @@ paths:
     put:
       tags:
         - goods
-      summary: "修改商品"
+      summary: 修改商品
       parameters:
         - in: path
           name: id
@@ -145,27 +145,27 @@ paths:
           name: authorization
           type: string
           required: true
-          description: 用户Token
+          description: Token
         - in: body
           required: true
           name: body
           schema:
             $ref: "#/definitions/GoodsWritable"
       responses:
-        923:
-          description: "ID不存在"
-        924:
-          description: "属性不合法"
-        925:
-          description: "权限错误"
+        901:
+          description: ID不存在
+        902:
+          description: 属性不合法
+        903:
+          description: 权限错误
         default:
-          description: "操作结果"
+          description: 操作结果
           schema:
             $ref: "#/definitions/GoodsComplete"
     delete:
       tags:
         - goods
-      summary: "删除商品"
+      summary: 删除商品
       parameters:
         - in: path
           name: id
@@ -176,28 +176,28 @@ paths:
           name: authorization
           type: string
           required: true
-          description: 用户Token
+          description: Token
       responses:
-        "925":
-          description: "ID不存在"
-        "923":
-          description: "权限错误"
         default:
-          description: "商品详情"
+          description: 商品详情
           schema:
             properties:
               errNo:
                 type: integer
               errMsg:
                 type: string
+        901:
+          description: ID不存在
+        902:
+          description: 权限错误
   /category:
     get:
       tags:
         - category
-      summary: "获取品类列表"
+      summary: 获取品类列表
       responses:
         default:
-          description: "品类列表"
+          description: 品类列表
           schema:
             properties:
               data:
@@ -214,15 +214,14 @@ paths:
                       format: url
                     description:
                       type: string
-
     post:
       tags:
         - category
-      summary: "新增品类"
+      summary: 新增品类
       parameters:
         - in: header
           name: authorization
-          description: "用户 Token"
+          description: Token
           required: true
           type: string
         - in: body
@@ -237,12 +236,12 @@ paths:
               description:
                 type: string
       responses:
-        "905":
-          description: "品类已存在"
-        "906":
-          description: "属性不合法"
+        901:
+          description: 品类已存在
+        902:
+          description: 属性不合法
         default:
-          description: "品类详情"
+          description: 品类详情
           schema:
             properties:
               id:
@@ -258,16 +257,16 @@ paths:
     put:
       tags:
         - category
-      summary: "修改品类信息"
+      summary: 修改品类信息
       parameters:
         - in: header
           name: authorization
-          description: 用户Token
+          description: Token
           required: true
           type: string
         - in: path
           name: id
-          description: "品牌ID"
+          description: 品牌ID
           required: true
           type: integer
         - in: body
@@ -282,12 +281,12 @@ paths:
               description:
                 type: string
       responses:
-        "907":
-          description: "ID不存在"
-        "902":
-          description: "属性不合法"
+        901:
+          description: ID不存在
+        902:
+          description: 属性不合法
         default:
-          description: "品类详情"
+          description: 品类详情
           schema:
             properties:
               id:
@@ -302,56 +301,56 @@ paths:
     delete:
       tags:
         - category
-      summary: "删除品类"
+      summary: 删除品类
       parameters:
         - name: authorization
           type: string
           in: header
-          description: 用户Token
+          description: Token
           required: true
         - name: id
           in: path
-          description: "品牌ID"
+          description: 品牌ID
           required: true
           type: string
       responses:
         default:
-          description: "操作结果"
+          description: 操作结果
           schema:
             properties:
               errNo:
                 type: integer
               errMsg:
                 type: string
-        "912":
-          description: "ID不存在"
+        901:
+          description: ID不存在
   /comment:
     get:
       tags:
         - comment
-      summary: "获取评论列表"
+      summary: 获取评论列表
       parameters:
-        - name: "sort"
+        - name: sort
           in: query
           type: string
           enum:
             - recommend
             - latest
-          description: "排序"
-        - name: "page"
+          description: 排序
+        - name: page
           in: query
-          description: "页码"
+          description: 页码
           type: integer
           default: 1
-        - name: "pageSize"
+        - name: pageSize
           in: query
-          description: "每页数目"
+          description: 每页数目
           type: integer
           default: 5
-        - name: "special"
+        - name: special
           in: query
           type: string
-          description: "查看选项"
+          description: 查看选项
           enum:
             - picture
             - good
@@ -360,7 +359,7 @@ paths:
             - additional
       responses:
         default:
-          description: "评论列表"
+          description: 评论列表
           schema:
             properties:
               data:
@@ -370,11 +369,11 @@ paths:
     post:
       tags:
         - comment
-      summary: "创建评价"
+      summary: 创建评价
       parameters:
         - in: header
           name: authorization
-          description: 用户Token
+          description: Token
           required: true
           type: string
         - in: body
@@ -384,57 +383,57 @@ paths:
             $ref: "#/definitions/CommentOrigin"
       responses:
         default:
-          description: "评论详情"
+          description: 评论详情
           schema:
             $ref: "#/definitions/CommentComplete"
-        "900":
-          description: "权限错误"
-        "901":
-          description: "属性不合法"
+        901:
+          description: 权限错误
+        902:
+          description: 属性不合法
   /comment/unchecked:
     get:
       tags:
         - comment
-      summary: "获取待审核评论列表"
+      summary: 获取待审核评论列表
       parameters:
         - in: header
           name: authorization
-          description: 用户Token
+          description: Token
           required: true
           type: string
-        - name: "page"
+        - name: page
           in: query
-          description: "页码"
+          description: 页码
           type: integer
           default: 1
-        - name: "pageSize"
+        - name: pageSize
           in: query
-          description: "每页数目"
+          description: 每页数目
           type: integer
           default: 5
       responses:
         default:
-          description: "待审核评论列表"
+          description: 待审核评论列表
           schema:
             properties:
               data:
                 type: array
                 items:
-                  $ref: '#/definitions/CommentComplete'
+                  $ref: "#/definitions/CommentComplete"
   /comment/{id}/audit:
     put:
       tags:
         - comment
-      summary: "审核评论"
+      summary: 审核评论
       parameters:
         - in: header
           name: authorization
-          description: 用户Token
+          description: Token
           required: true
           type: string
         - in: path
           name: id
-          description: "评论ID"
+          description: 评论ID
           required: true
           type: string
         - in: body
@@ -445,30 +444,30 @@ paths:
               status:
                 type: string
       responses:
-        "903":
-          description: "ID不存在"
-        "904":
-          description: "属性不合法"
-        "905":
-          description: "权限错误"
         default:
-          description: "评论详情"
+          description: 评论详情
           schema:
             $ref: "#/definitions/CommentComplete"
+        901:
+          description: ID不存在
+        902:
+          description: 属性不合法
+        903:
+          description: 权限错误
   /comment/{id}/addition:
     put:
       tags:
         - comment
-      summary: "追加评论"
+      summary: 追加评论
       parameters:
         - in: header
           name: authorization
-          description: 用户Token
+          description: Token
           required: true
           type: string
         - in: path
           name: id
-          description: "评论ID"
+          description: 评论ID
           required: true
           type: string
         - in: body
@@ -477,210 +476,210 @@ paths:
           schema:
             $ref: "#/definitions/CommentAddition"
       responses:
-        "903":
-          description: "ID不存在"
-        "904":
-          description: "属性不合法"
-        "905":
-          description: "权限错误"
         default:
-          description: "评论详情"
+          description: 评论详情
           schema:
             $ref: "#/definitions/CommentComplete"
+        901:
+          description: ID不存在
+        902:
+          description: 属性不合法
+        903:
+          description: 权限错误
   /comment/{id}:
     get:
       tags:
         - comment
-      summary: "查看评论"
+      summary: 查看评论
       parameters:
         - in: header
           name: authorization
-          description: 用户Token
+          description: Token
           required: true
           type: string
         - in: path
           name: id
-          description: "评论ID"
+          description: 评论ID
           required: true
           type: string
       responses:
-        "903":
-          description: "ID不存在"
         default:
-          description: "评论详情"
+          description: 评论详情
           schema:
             $ref: "#/definitions/CommentComplete"
+        901:
+          description: ID不存在
     delete:
       tags:
         - comment
-      summary: "删除评论"
+      summary: 删除评论
       parameters:
         - in: header
           name: authorization
-          description: 用户Token
+          description: Token
           required: true
           type: string
         - in: path
           name: id
-          description: "评论ID"
+          description: 评论ID
           required: true
           type: string
       responses:
         default:
-          description: "操作结果"
+          description: 操作结果
           schema:
             properties:
               errNo:
                 type: integer
               errMsg:
                 type: string
-        "903":
-          description: "ID不存在"
-        "905":
-          description: "权限错误"
+        901:
+          description: ID不存在
+        902:
+          description: 权限错误
   /coupon:
     post:
       tags:
         - coupon
-      summary: "创建优惠券"
+      summary: 创建优惠券
       parameters:
         - in: header
           name: authorization
-          description: 用户Token
+          description: Token
           required: true
           type: string
         - name: body
           in: body
           required: true
           schema:
-            $ref: "#/definitions/CouponEditable"
+            $ref: "#/definitions/CouponWritable"
       responses:
         default:
-          description: "优惠券信息"
+          description: 优惠券信息
           schema:
-            $ref: "#/definitions/Coupon"
-        "901":
-          description: "模板ID不存在"
-        "903":
-          description: "模板参数不合法"
-        "904":
-          description: "权限错误"
+            $ref: "#/definitions/CouponComplete"
+        901:
+          description: 模板ID不存在
+        902:
+          description: 模板参数不合法
+        903:
+          description: 权限错误
   /coupon/{id}:
     put:
       tags:
         - coupon
-      summary: "修改优惠券"
+      summary: 修改优惠券
       parameters:
         - name: authorization
           type: string
           in: header
-          description: 用户Token
+          description: Token
           required: true
         - name: id
           type: integer
           in: path
-          description: "优惠券ID"
+          description: 优惠券ID
           required: true
         - name: body
           in: body
           required: true
           schema:
-            $ref: "#/definitions/CouponEditable"
+            $ref: "#/definitions/CouponWritable"
       responses:
         default:
-          description: "优惠券信息"
+          description: 优惠券信息
           schema:
-            $ref: "#/definitions/Coupon"
-        "902":
-          description: "操作的优惠券不存在"
+            $ref: "#/definitions/CouponComplete"
+        901:
+          description: 优惠券ID不存在
     get:
       tags:
         - coupon
-      summary: "查看优惠券信息"
+      summary: 查看优惠券信息
       parameters:
         - name: id
           type: integer
           in: path
-          description: "优惠券ID"
+          description: 优惠券ID
           required: true
       responses:
         default:
-          description: "成功"
+          description: 优惠券信息
           schema:
-            $ref: "#/definitions/Coupon"
-        "902":
-          description: "操作的优惠券不存在"
+            $ref: "#/definitions/CouponComplete"
+        901:
+          description: 优惠券ID不存在
     post:
       tags:
         - coupon
-      summary: "领取优惠券"
+      summary: 领取优惠券
       parameters:
         - name: authorization
           type: string
           in: header
-          description: 用户Token
+          description: Token
           required: true
         - name: id
           type: integer
           in: path
-          description: "优惠券ID"
+          description: 优惠券ID
           required: true
       responses:
         default:
-          description: "成功"
+          description: 成功
           schema:
-            $ref: "#/definitions/Coupon"
-        "902":
-          description: "优惠券ID不存在"
-        "903":
-          description: "领取条件未满足"
+            $ref: "#/definitions/CouponComplete"
+        901:
+          description: 优惠券ID不存在
+        902:
+          description: 领取条件未满足
     delete:
       tags:
         - coupon
-      summary: "作废优惠券"
+      summary: 作废优惠券
       parameters:
         - name: authorization
           in: header
-          description: 用户Token
+          description: Token
           type: string
           required: true
         - name: id
           in: path
-          description: "优惠券ID"
+          description: 优惠券ID
           type: integer
           required: true
       responses:
         default:
-          description: "操作结果"
+          description: 操作结果
           schema:
             properties:
               errNo:
                 type: integer
               errMsg:
                 type: string
-        "902":
-          description: "优惠券ID不存在"
-        "903":
-          description: "权限错误"
+        901:
+          description: 优惠券ID不存在
+        902:
+          description: 权限错误
   /topic:
     post:
       tags:
         - topic
-      summary: "新建专题"
+      summary: 新建专题
       parameters:
         - in: header
           name: authorization
-          description: 用户Token
+          description: Token
           required: true
           type: string
         - name: body
           in: body
           required: true
           schema:
-            $ref: "#/definitions/TopicEditable"
+            $ref: "#/definitions/TopicWritable"
       responses:
         default:
-          description: "专题信息"
+          description: 专题信息
           schema:
             properties:
               id:
@@ -701,86 +700,86 @@ paths:
                   properties:
                     id:
                       type: integer
-        "902":
-          description: "属性不合法"
-        "903":
-          description: "商品ID不存在"
-        "901":
-          description: "权限错误"
+        901:
+          description: 属性不合法
+        902:
+          description: 商品ID不存在
+        903:
+          description: 权限错误
 
   /topic/{id}:
     get:
       tags:
         - topic
-      summary: "查询专题信息"
+      summary: 查询专题信息
       parameters:
         - name: id
           type: string
           in: path
-          description: "专题ID"
+          description: 专题ID
           required: true
       responses:
         default:
-          description: "专题信息"
+          description: 专题信息
           schema:
-            $ref: "#/definitions/TopicDetail"
+            $ref: "#/definitions/TopicComplete"
     put:
       tags:
         - topic
-      summary: "修改专题信息"
+      summary: 修改专题信息
       parameters:
         - name: authorization
           type: string
           in: header
-          description: 用户Token
+          description: Token
           required: true
         - name: id
           type: string
           in: path
-          description: "专题ID"
+          description: 专题ID
           required: true
         - name: body
           in: body
           required: true
           schema:
-            $ref: "#/definitions/TopicEditable"
+            $ref: "#/definitions/TopicWritable"
       responses:
         default:
-          description: "专题信息"
+          description: 专题信息
           schema:
-            $ref: "#/definitions/TopicDetail"
-        "902":
-          description: "属性不合法"
-        "903":
-          description: "商品ID不存在"
-        "901":
-          description: "权限错误"
+            $ref: "#/definitions/TopicComplete"
+        901:
+          description: 属性不合法
+        902:
+          description: 商品ID不存在
+        903:
+          description: 权限错误
     delete:
       tags:
         - topic
-      summary: "删除专题"
+      summary: 删除专题
       parameters:
         - in: header
           name: authorization
-          description: 用户Token
+          description: Token
           required: true
           type: string
         - name: id
           in: path
-          description: "专题ID"
+          description: 专题ID
           required: true
           type: integer
       responses:
         default:
-          description: "操作结果"
+          description: 操作结果
           schema:
             properties:
               errNo:
                 type: integer
               errMsg:
                 type: string
-        "901":
-          description: "权限错误"
+        901:
+          description: 权限错误
 definitions:
   GoodsAbstract:
     properties:
@@ -975,7 +974,7 @@ definitions:
           - unchecked
           - approved
           - unapproved
-  Coupon:
+  CouponComplete:
     properties:
       id:
         type: integer
@@ -997,7 +996,7 @@ definitions:
         type: string
       endTime:
         type: string
-  CouponEditable:
+  CouponWritable:
     properties:
       name:
         type: string
@@ -1014,7 +1013,7 @@ definitions:
         type: string
       endTime:
         type: string
-  TopicEditable:
+  TopicWritable:
     properties:
       name:
         type: string
@@ -1032,7 +1031,7 @@ definitions:
           properties:
             id:
               type: integer
-  TopicDetail:
+  TopicComplete:
     properties:
       name:
         type: string

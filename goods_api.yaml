@@ -1,1049 +1,174 @@
-swagger: "2.0"
+swagger: '2.0'
 info:
-  version: "0.0.1"
-  title: 1-13 商品相关模块API
-tags:
-  - name: goods
-    description: 商品
-  - name: category
-    description: 品类
-  - name: comment
-    description: 评论
-  - name: coupon
-    description: 优惠券
-  - name: topic
-    description: 特殊专题
+  version: 0.0.2
+  title: 1-13 商品模块
 paths:
   /goods:
-    get:
-      tags:
-        - goods
-      summary: 获取商品列表
-      parameters:
-        - in: query
-          name: search
-          type: string
-          description: 关键词
-        - in: query
-          name: price
-          type: string
-          # example: 100-150
-          description: 价格区间
-        - in: query
-          name: sort
-          type: string
-          enum:
-            - comprehensive
-            - sales
-            - comment
-            - price_descending
-            - price_ascending
-            - latest
-          description: 排序
-        - in: query
-          name: page
-          description: 页码
-          type: integer
-        - in: query
-          name: pageSize
-          type: integer
-          description: 每页数目
-        - in: query
-          name: special
-          type: string
-          description: 特殊商品
-          enum:
-            - presale
-            - groupon
-            - hot
-        - in: query
-          name: brand
-          type: string
-          description: 品牌ID
-        - in: query
-          name: category
-          type: string
-          description: 品类ID
-      responses:
-        default:
-          description: 商品列表
-          schema:
-            properties:
-              data:
-                type: array
-                items:
-                  $ref: "#/definitions/GoodsAbstract"
-        901:
-          description: 非法的价格区间条件
-        902:
-          description: 非法的排序方式
-        903:
-          description: 非法的页码与数目
-        904:
-          description: 非法的特殊商品条件
-        905:
-          description: 非法的品牌ID
-        906:
-          description: 非法的品类ID
     post:
       tags:
-        - goods
-      summary: 新增商品
+      - goods
+      summary: 新建商品
+      description: 店铺管理员新增商品
       parameters:
-        - in: header
-          name: authorization
-          type: string
-          required: true
-          description: Token
-        - in: body
-          required: true
-          name: body
-          schema:
-            $ref: "#/definitions/GoodsWritable"
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: body
+        name: good_spu
+        description: 商品SPU：ID自动生成，状态未上架，规格为空
+        required: true
+        schema:
+          properties:
+            name:
+              type: string
+            brand_id:
+              type: integer
+            category_id:
+              type: integer
+            freight_id:
+              type: integer
+            goods_sn:
+              type: string
+            description:
+              type: string
+            image_url:
+              type: string
       responses:
-        901:
-          description: 非法的商品属性
-        902:
-          description: 操作权限不足
-        default:
-          description: 商品详情
+        200:
+          description: OK
           schema:
-            $ref: "#/definitions/GoodsComplete"
-  /goods/{id}:
-    get:
-      tags:
-        - goods
-      summary: 查询商品详情
-      parameters:
-        - in: path
-          name: id
-          type: integer
-          format: int64
-          required: true
-          description: 商品ID
-        - in: query
-          name: time
-          format: date
-          type: string
-          description: 历史版本
-      responses:
-        default:
-          description: 商品详情
-          schema:
-            $ref: "#/definitions/GoodsComplete"
+            $ref: '#/definitions/goods_spu'
+  /goods/{spu_id}/onshelf:
     put:
       tags:
-        - goods
-      summary: 修改商品
+      - goods
+      summary: 上架商品
+      description: 店铺管理员上架商品
       parameters:
-        - in: path
-          name: id
-          type: integer
-          required: true
-          description: 商品ID
-        - in: header
-          name: authorization
-          type: string
-          required: true
-          description: Token
-        - in: body
-          required: true
-          name: body
-          schema:
-            $ref: "#/definitions/GoodsWritable"
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
       responses:
-        901:
-          description: ID不存在
-        902:
-          description: 属性不合法
-        903:
-          description: 权限错误
-        default:
-          description: 操作结果
+        200:
+          description: OK
           schema:
-            $ref: "#/definitions/GoodsComplete"
-    delete:
-      tags:
-        - goods
-      summary: 删除商品
-      parameters:
-        - in: path
-          name: id
-          type: integer
-          required: true
-          description: 商品ID
-        - in: header
-          name: authorization
-          type: string
-          required: true
-          description: Token
-      responses:
-        default:
-          description: 商品详情
-          schema:
-            properties:
-              errNo:
-                type: integer
-              errMsg:
-                type: string
-        901:
-          description: ID不存在
-        902:
-          description: 权限错误
-  /category:
-    get:
-      tags:
-        - category
-      summary: 获取品类列表
-      responses:
-        default:
-          description: 品类列表
-          schema:
-            properties:
-              data:
-                type: array
-                items:
-                  properties:
-                    id:
-                      type: integer
-                      format: int64
-                    name:
-                      type: string
-                    logoUrl:
-                      type: string
-                      format: url
-                    description:
-                      type: string
-    post:
-      tags:
-        - category
-      summary: 新增品类
-      parameters:
-        - in: header
-          name: authorization
-          description: Token
-          required: true
-          type: string
-        - in: body
-          name: body
-          required: true
-          schema:
-            properties:
-              name:
-                type: string
-              logoUrl:
-                type: string
-              description:
-                type: string
-      responses:
-        901:
-          description: 品类已存在
-        902:
-          description: 属性不合法
-        default:
-          description: 品类详情
-          schema:
-            properties:
-              id:
-                type: integer
-                format: int64
-              name:
-                type: string
-              logoUrl:
-                type: string
-              description:
-                type: string
-  /category/{id}:
+            $ref: '#/definitions/goods_spu'
+  /goods/{spu_id}/offshelf:
     put:
       tags:
-        - category
-      summary: 修改品类信息
+      - goods
+      summary: 下架商品
+      description: 店铺管理员下架商品
       parameters:
-        - in: header
-          name: authorization
-          description: Token
-          required: true
-          type: string
-        - in: path
-          name: id
-          description: 品牌ID
-          required: true
-          type: integer
-        - in: body
-          name: body
-          required: true
-          schema:
-            properties:
-              name:
-                type: string
-              logoUrl:
-                type: string
-              description:
-                type: string
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
       responses:
-        901:
-          description: ID不存在
-        902:
-          description: 属性不合法
-        default:
-          description: 品类详情
+        200:
+          description: OK
           schema:
-            properties:
-              id:
-                type: integer
-                format: int64
-              name:
-                type: string
-              logoUrl:
-                type: string
-              description:
-                type: string
-    delete:
-      tags:
-        - category
-      summary: 删除品类
-      parameters:
-        - name: authorization
-          type: string
-          in: header
-          description: Token
-          required: true
-        - name: id
-          in: path
-          description: 品牌ID
-          required: true
-          type: string
-      responses:
-        default:
-          description: 操作结果
-          schema:
-            properties:
-              errNo:
-                type: integer
-              errMsg:
-                type: string
-        901:
-          description: ID不存在
-  /comment:
-    get:
-      tags:
-        - comment
-      summary: 获取评论列表
-      parameters:
-        - name: sort
-          in: query
-          type: string
-          enum:
-            - recommend
-            - latest
-          description: 排序
-        - name: page
-          in: query
-          description: 页码
-          type: integer
-          default: 1
-        - name: pageSize
-          in: query
-          description: 每页数目
-          type: integer
-          default: 5
-        - name: special
-          in: query
-          type: string
-          description: 查看选项
-          enum:
-            - picture
-            - good
-            - normal
-            - bad
-            - additional
-      responses:
-        default:
-          description: 评论列表
-          schema:
-            properties:
-              data:
-                type: array
-                items:
-                  $ref: "#/definitions/CommentAbstract"
+            $ref: '#/definitions/goods_spu'
+  /goods/{spu_id}/spec:
     post:
       tags:
-        - comment
-      summary: 创建评价
+      - goods
+      summary: 新建商品规格
+      description: 店铺管理员新增商品规格
       parameters:
-        - in: header
-          name: authorization
-          description: Token
-          required: true
-          type: string
-        - in: body
-          name: comment
-          required: true
-          schema:
-            $ref: "#/definitions/CommentOrigin"
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: body
+        name: goods_sku
+        description: 商品SKU：
+        required: true
+        schema:
+          properties:
+            name:
+              type: string
+            original_price:
+              type: number
+            configuration:
+              type: object
+            weight:
+              type: number
+            image_url:
+              type: number
+            inventory:
+              type: integer
+            description:
+              type: string
       responses:
-        default:
-          description: 评论详情
+        200:
+          description: OK
           schema:
-            $ref: "#/definitions/CommentComplete"
-        901:
-          description: 权限错误
-        902:
-          description: 属性不合法
-  /comment/unchecked:
-    get:
-      tags:
-        - comment
-      summary: 获取待审核评论列表
-      parameters:
-        - in: header
-          name: authorization
-          description: Token
-          required: true
-          type: string
-        - name: page
-          in: query
-          description: 页码
-          type: integer
-          default: 1
-        - name: pageSize
-          in: query
-          description: 每页数目
-          type: integer
-          default: 5
-      responses:
-        default:
-          description: 待审核评论列表
-          schema:
-            properties:
-              data:
-                type: array
-                items:
-                  $ref: "#/definitions/CommentComplete"
-  /comment/{id}/audit:
-    put:
-      tags:
-        - comment
-      summary: 审核评论
-      parameters:
-        - in: header
-          name: authorization
-          description: Token
-          required: true
-          type: string
-        - in: path
-          name: id
-          description: 评论ID
-          required: true
-          type: string
-        - in: body
-          name: comment
-          required: true
-          schema:
-            properties:
-              status:
-                type: string
-      responses:
-        default:
-          description: 评论详情
-          schema:
-            $ref: "#/definitions/CommentComplete"
-        901:
-          description: ID不存在
-        902:
-          description: 属性不合法
-        903:
-          description: 权限错误
-  /comment/{id}/addition:
-    put:
-      tags:
-        - comment
-      summary: 追加评论
-      parameters:
-        - in: header
-          name: authorization
-          description: Token
-          required: true
-          type: string
-        - in: path
-          name: id
-          description: 评论ID
-          required: true
-          type: string
-        - in: body
-          name: comment
-          required: true
-          schema:
-            $ref: "#/definitions/CommentAddition"
-      responses:
-        default:
-          description: 评论详情
-          schema:
-            $ref: "#/definitions/CommentComplete"
-        901:
-          description: ID不存在
-        902:
-          description: 属性不合法
-        903:
-          description: 权限错误
-  /comment/{id}:
-    get:
-      tags:
-        - comment
-      summary: 查看评论
-      parameters:
-        - in: header
-          name: authorization
-          description: Token
-          required: true
-          type: string
-        - in: path
-          name: id
-          description: 评论ID
-          required: true
-          type: string
-      responses:
-        default:
-          description: 评论详情
-          schema:
-            $ref: "#/definitions/CommentComplete"
-        901:
-          description: ID不存在
-    delete:
-      tags:
-        - comment
-      summary: 删除评论
-      parameters:
-        - in: header
-          name: authorization
-          description: Token
-          required: true
-          type: string
-        - in: path
-          name: id
-          description: 评论ID
-          required: true
-          type: string
-      responses:
-        default:
-          description: 操作结果
-          schema:
-            properties:
-              errNo:
-                type: integer
-              errMsg:
-                type: string
-        901:
-          description: ID不存在
-        902:
-          description: 权限错误
-  /coupon:
-    post:
-      tags:
-        - coupon
-      summary: 创建优惠券
-      parameters:
-        - in: header
-          name: authorization
-          description: Token
-          required: true
-          type: string
-        - name: body
-          in: body
-          required: true
-          schema:
-            $ref: "#/definitions/CouponWritable"
-      responses:
-        default:
-          description: 优惠券信息
-          schema:
-            $ref: "#/definitions/CouponComplete"
-        901:
-          description: 模板ID不存在
-        902:
-          description: 模板参数不合法
-        903:
-          description: 权限错误
-  /coupon/{id}:
-    put:
-      tags:
-        - coupon
-      summary: 修改优惠券
-      parameters:
-        - name: authorization
-          type: string
-          in: header
-          description: Token
-          required: true
-        - name: id
-          type: integer
-          in: path
-          description: 优惠券ID
-          required: true
-        - name: body
-          in: body
-          required: true
-          schema:
-            $ref: "#/definitions/CouponWritable"
-      responses:
-        default:
-          description: 优惠券信息
-          schema:
-            $ref: "#/definitions/CouponComplete"
-        901:
-          description: 优惠券ID不存在
-    get:
-      tags:
-        - coupon
-      summary: 查看优惠券信息
-      parameters:
-        - name: id
-          type: integer
-          in: path
-          description: 优惠券ID
-          required: true
-      responses:
-        default:
-          description: 优惠券信息
-          schema:
-            $ref: "#/definitions/CouponComplete"
-        901:
-          description: 优惠券ID不存在
-    post:
-      tags:
-        - coupon
-      summary: 领取优惠券
-      parameters:
-        - name: authorization
-          type: string
-          in: header
-          description: Token
-          required: true
-        - name: id
-          type: integer
-          in: path
-          description: 优惠券ID
-          required: true
-      responses:
-        default:
-          description: 成功
-          schema:
-            $ref: "#/definitions/CouponComplete"
-        901:
-          description: 优惠券ID不存在
-        902:
-          description: 领取条件未满足
-    delete:
-      tags:
-        - coupon
-      summary: 作废优惠券
-      parameters:
-        - name: authorization
-          in: header
-          description: Token
-          type: string
-          required: true
-        - name: id
-          in: path
-          description: 优惠券ID
-          type: integer
-          required: true
-      responses:
-        default:
-          description: 操作结果
-          schema:
-            properties:
-              errNo:
-                type: integer
-              errMsg:
-                type: string
-        901:
-          description: 优惠券ID不存在
-        902:
-          description: 权限错误
-  /topic:
-    post:
-      tags:
-        - topic
-      summary: 新建专题
-      parameters:
-        - in: header
-          name: authorization
-          description: Token
-          required: true
-          type: string
-        - name: body
-          in: body
-          required: true
-          schema:
-            $ref: "#/definitions/TopicWritable"
-      responses:
-        default:
-          description: 专题信息
-          schema:
-            properties:
-              id:
-                type: integer
-              name:
-                type: string
-              picture:
-                type: string
-              description:
-                type: string
-              beginTime:
-                type: string
-              endTime:
-                type: string
-              goods:
-                type: array
-                items:
-                  properties:
-                    id:
-                      type: integer
-        901:
-          description: 属性不合法
-        902:
-          description: 商品ID不存在
-        903:
-          description: 权限错误
+            $ref: '#/definitions/goods_sku'
 
-  /topic/{id}:
-    get:
-      tags:
-        - topic
-      summary: 查询专题信息
-      parameters:
-        - name: id
-          type: string
-          in: path
-          description: 专题ID
-          required: true
-      responses:
-        default:
-          description: 专题信息
-          schema:
-            $ref: "#/definitions/TopicComplete"
-    put:
-      tags:
-        - topic
-      summary: 修改专题信息
-      parameters:
-        - name: authorization
-          type: string
-          in: header
-          description: Token
-          required: true
-        - name: id
-          type: string
-          in: path
-          description: 专题ID
-          required: true
-        - name: body
-          in: body
-          required: true
-          schema:
-            $ref: "#/definitions/TopicWritable"
-      responses:
-        default:
-          description: 专题信息
-          schema:
-            $ref: "#/definitions/TopicComplete"
-        901:
-          description: 属性不合法
-        902:
-          description: 商品ID不存在
-        903:
-          description: 权限错误
-    delete:
-      tags:
-        - topic
-      summary: 删除专题
-      parameters:
-        - in: header
-          name: authorization
-          description: Token
-          required: true
-          type: string
-        - name: id
-          in: path
-          description: 专题ID
-          required: true
-          type: integer
-      responses:
-        default:
-          description: 操作结果
-          schema:
-            properties:
-              errNo:
-                type: integer
-              errMsg:
-                type: string
-        901:
-          description: 权限错误
 definitions:
-  GoodsAbstract:
+  goods_spu:
     properties:
       id:
         type: integer
-        format: int64
       name:
         type: string
-      price:
-        type: number
-      comments:
+      brand_id:
         type: integer
-      image:
-        type: string
-        format: url
-      store:
-        properties:
-          id:
-            type: integer
-            format: int64
-          name:
-            type: string
-  GoodsWritable:
-    properties:
-      name:
-        type: string
-      price:
-        type: number
-      image:
-        type: string
-        format: url
-      stock:
+      category_id:
         type: integer
+      freight_id:
+        type: integer
+      goods_sn:
+        type: string
       description:
         type: string
-      onShelf:
-        type: boolean
+      image_url:
+        type: string
+      state:
+        type: string
+      spec:
+        type: array
+        items:
+          $ref: '#/definitions/goods_sku'
+  goods_sku:
+    properties:
+      id:
+        type: integer
+      goods_spu_id:
+        type: integer
+      name:
+        type: string
+      original_price:
+        type: number
+      configuration:
+        type: object
       weight:
         type: number
-      volume:
-        type: number
-      brands:
-        type: array
-        items:
-          properties:
-            id:
-              type: integer
-              format: int64
-      categories:
-        type: array
-        items:
-          properties:
-            id:
-              type: integer
-              format: int64
-      special:
+      image_url:
         type: string
-        enum:
-          - normal
-          - presale
-          - groupon
-          - hot
-      spBegin:
-        type: string
-        format: date
-        description: 预售/团购/秒杀开始时间
-      spEnd:
-        type: string
-        format: date
-        description: 预售/团购/秒杀结束时间
-      spPrice:
-        type: number
-        description: 预售定金/秒杀价格
-      spFpBegin:
-        type: string
-        format: date
-        description: 预售尾款开始时间
-      spFpEnd:
-        type: string
-        format: date
-        description: 预售尾款截止时间
-      spLimit:
+      inventory:
         type: integer
-        description: 秒杀数量
-      spRule:
-        type: string
-        description: 团购规则阶梯
-  GoodsComplete:
-    allOf:
-      - $ref: "#/definitions/GoodsWritable"
-    properties:
-      id:
-        type: integer
-        format: int64
-      store:
-        properties:
-          id:
-            type: integer
-            format: int64
-          name:
-            type: string
-      comments:
-        type: integer
-  CommentOrigin:
-    properties:
-      goods:
-        type: integer
-        format: int64
-      rating:
-        type: integer
-      content:
-        type: string
-      images:
-        type: array
-        items:
-          type: string
-          format: url
-  CommentAddition:
-    properties:
-      content:
-        type: string
-      addition:
-        type: string
-      additionImages:
-        type: array
-        items:
-          type: string
-          format: url
-  CommentAbstract:
-    properties:
-      id:
-        type: integer
-        format: int64
-      rating:
-        type: integer
-      content:
-        type: string
-      images:
-        type: array
-        items:
-          type: string
-          format: url
-      time:
-        type: string
-        format: date
-      addition:
-        type: string
-      additionImages:
-        type: array
-        items:
-          type: string
-          format: url
-      additionTime:
-        type: string
-        format: date
-      user:
-        type: string
-  CommentComplete:
-    properties:
-      id:
-        type: integer
-        format: int64
-      goods:
-        type: integer
-        format: int64
-      rating:
-        type: integer
-      content:
-        type: string
-      additional:
-        type: string
-      images:
-        type: array
-        items:
-          type: string
-      additionalimages:
-        type: array
-        items:
-          type: string
-      commentTime:
-        type: string
-        format: date
-      auditTime:
-        type: string
-        format: date
-      additionalTime:
-        type: string
-        format: date
-      status:
-        type: string
-        enum:
-          - unchecked
-          - approved
-          - unapproved
-  CouponComplete:
-    properties:
-      id:
-        type: integer
-        format: int64
-      name:
-        type: string
-      ruleID:
-        type: integer
-        format: int64
-      rule:
-        type: string
       description:
         type: string
-      quantity:
-        type: integer
-      occupied:
-        type: integer
-      beginTime:
-        type: string
-      endTime:
-        type: string
-  CouponWritable:
-    properties:
-      name:
-        type: string
-      ruleID:
-        type: integer
-        format: int64
-      rule:
-        type: string
-      description:
-        type: string
-      quantity:
-        type: integer
-      beginTime:
-        type: string
-      endTime:
-        type: string
-  TopicWritable:
-    properties:
-      name:
-        type: string
-      picture:
-        type: string
-      description:
-        type: string
-      beginTime:
-        type: string
-      endTime:
-        type: string
-      goods:
-        type: array
-        items:
-          properties:
-            id:
-              type: integer
-  TopicComplete:
-    properties:
-      name:
-        type: string
-      picture:
-        type: string
-      description:
-        type: string
-      beginTime:
-        type: string
-      endTime:
-        type: string
-      goods:
-        type: array
-        items:
-          $ref: "#/definitions/GoodsAbstract"

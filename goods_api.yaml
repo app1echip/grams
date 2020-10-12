@@ -17,7 +17,7 @@ paths:
         required: true
       - in: body
         name: good_spu
-        description: 商品SPU：ID自动生成，状态未上架，规格为空
+        description: 商品SPU（ID自动生成，状态未上架，规格为空）
         required: true
         schema:
           properties:
@@ -103,7 +103,7 @@ paths:
         required: true
       - in: body
         name: goods_sku
-        description: 商品SKU：
+        description: 商品SKU（ID自动生成）
         required: true
         schema:
           properties:

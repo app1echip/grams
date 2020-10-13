@@ -106,27 +106,37 @@ paths:
         200:
           description: OK
           schema:
-              properties:
-                id:
-                  type: integer
-                name:
-                  type: string
-                brand_id:
-                  type: integer
-                category_id:
-                  type: integer
-                freight_id:
-                  type: integer
-                goods_sn:
-                  type: string
-                description:
-                  type: string
-                image_url:
-                  type: string
-                spec:
-                  type: array
-                  items:
-                    $ref: '#/definitions/goods_sku'
+            properties:
+              name:
+                type: string
+              brand_id:
+                type: integer
+              category_id:
+                type: integer
+              goods_sn:
+                type: string
+              description:
+                type: string
+              image_url:
+                type: string
+              spec:
+                type: array
+                items:
+                  properties:
+                    name:
+                      type: string
+                    original_price:
+                      type: number
+                    configuration:
+                      type: object
+                    weight:
+                      type: number
+                    image_url:
+                      type: string
+                    inventory:
+                      type: integer
+                    description:
+                      type: string
     
   /goods/{spu_id}/onshelf:
     put:
@@ -325,6 +335,79 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/floating_price'
+  /shop/{shop_id}/goods:
+    get:
+      tags:
+      - goods
+      summary: 用户查看店铺商品
+      description: 用户查看店铺内上架的商品
+      parameters:
+      - in: path
+        name: shop_id
+        type: integer
+        description: 店铺ID
+        required: true
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: string
+                brand_id:
+                  type: integer
+                category_id:
+                  type: integer
+                goods_sn:
+                  type: string
+                description:
+                  type: string
+                image_url:
+                  type: string
+                spec:
+                  type: array
+                  items:
+                    properties:
+                      name:
+                        type: string
+                      original_price:
+                        type: number
+                      configuration:
+                        type: object
+                      weight:
+                        type: number
+                      image_url:
+                        type: string
+                      inventory:
+                        type: integer
+                      description:
+                        type: string
+
+  /shop/goods:
+    get:
+      tags:
+      - goods
+      summary: 店铺管理员获得店铺商品
+      description: 店铺管理员查看店铺内所有商品（包含未上架商品）
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/goods_spu'
+      
+      
           
         
 definitions:

@@ -4,6 +4,15 @@ info:
   title: 1-13 商品模块
 paths:
   /goods:
+    # tags:
+    # - goods
+    # get:
+    #   summary: 获取商品列表
+    #   description: 用户获得已上架商品列表
+    #   responses:
+    #     200:
+    #       description: OK
+    
     post:
       tags:
       - goods
@@ -40,6 +49,85 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/goods_spu'
+  /goods/{spu_id}:
+    put:
+      tags:
+      - goods
+      summary: 修改商品信息
+      description: 店铺管理员修改商品信息
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: body
+        name: good_spu
+        description: 商品SPU
+        required: true
+        schema:
+          properties:
+            name:
+              type: string
+            brand_id:
+              type: integer
+            category_id:
+              type: integer
+            freight_id:
+              type: integer
+            goods_sn:
+              type: string
+            description:
+              type: string
+            image_url:
+              type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/goods_spu'
+    get:
+      tags:
+      - goods
+      summary: 查看商品信息
+      description: 用户查看已上架商品详情
+      parameters:
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      responses:
+        200:
+          description: OK
+          schema:
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: string
+                brand_id:
+                  type: integer
+                category_id:
+                  type: integer
+                freight_id:
+                  type: integer
+                goods_sn:
+                  type: string
+                description:
+                  type: string
+                image_url:
+                  type: string
+                spec:
+                  type: array
+                  items:
+                    $ref: '#/definitions/goods_sku'
+    
   /goods/{spu_id}/onshelf:
     put:
       tags:
@@ -126,7 +214,119 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/goods_sku'
-
+  /goods/{spu_id}/spce/{sku_id}:
+    put:
+      tags:
+      - goods
+      summary: 修改商品规格
+      description: 店铺管理员修改商品规格信息
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: path
+        name: sku_id
+        type: integer
+        description: 商品SKU ID
+        required: true
+      - in: body
+        name: goods_sku
+        description: 商品SKU
+        required: true
+        schema:
+          properties:
+            name:
+              type: string
+            original_price:
+              type: number
+            configuration:
+              type: object
+            weight:
+              type: number
+            image_url:
+              type: number
+            inventory:
+              type: integer
+            description:
+              type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/goods_sku'
+    delete:
+      tags:
+      - goods
+      summary: 逻辑删除商品规格
+      description: 店铺管理员移除可用的商品规格
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: path
+        name: sku_id
+        type: integer
+        description: 商品SKU ID
+        required: true
+      responses:
+        200:
+          description: OK
+  /goods/{spu_id}/spec/{sku_id}/floating_price:
+    put:
+      tags:
+      - goods
+      summary: 新增规格浮动价格
+      description: 店铺管理员新增商品规格价格浮动
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: path
+        name: sku_id
+        type: integer
+        description: 商品SKU ID
+        required: true
+      - in: body
+        name: floating_price
+        required: true
+        schema:
+          properties:
+            activity_price:
+              type: number
+            begin_time:
+              type: string
+            end_time:
+              type: string
+            quantity:
+              type: integer
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/floating_price'
+          
+        
 definitions:
   goods_spu:
     properties:
@@ -172,3 +372,17 @@ definitions:
         type: integer
       description:
         type: string
+  floating_price:
+    properties:
+      id:
+        type: integer
+      goods_sku_id:
+        type: integer
+      activity_price:
+        type: number
+      begin_time:
+        type: string
+      end_time:
+        type: string
+      quantity:
+        type: integer

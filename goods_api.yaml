@@ -89,8 +89,6 @@ paths:
       responses:
         200:
           description: OK
-          schema:
-            $ref: '#/definitions/goods_spu'
     get:
       tags:
       - goods
@@ -158,8 +156,6 @@ paths:
       responses:
         200:
           description: OK
-          schema:
-            $ref: '#/definitions/goods_spu'
   /goods/{spu_id}/offshelf:
     put:
       tags:
@@ -269,8 +265,6 @@ paths:
       responses:
         200:
           description: OK
-          schema:
-            $ref: '#/definitions/goods_sku'
     delete:
       tags:
       - goods
@@ -333,8 +327,6 @@ paths:
       responses:
         200:
           description: OK
-          schema:
-            $ref: '#/definitions/floating_price'
   /shop/{shop_id}/goods:
     get:
       tags:

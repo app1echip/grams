@@ -4,15 +4,6 @@ info:
   title: 1-13 商品模块
 paths:
   /goods:
-    # tags:
-    # - goods
-    # get:
-    #   summary: 获取商品列表
-    #   description: 用户获得已上架商品列表
-    #   responses:
-    #     200:
-    #       description: OK
-    
     post:
       tags:
       - goods
@@ -49,6 +40,69 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/goods_spu'
+    get:
+      tags:
+      - goods
+      summary: 获取商品列表
+      description: 用户获得已上架商品列表
+      parameters:
+      - in: query
+        name: page
+        type: integer
+        description: 页数
+      - in: query
+        name: pageSize
+        type: integer
+        description: 每页数量
+      - in: query
+        name: sort
+        type: string
+        enum:
+        - price_ascending
+        - price_descending
+        - comments
+        description: 排列
+      - in: query
+        name: search
+        type: string
+        description: 搜索关键字
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              properties:
+                  name:
+                    type: string
+                  brand_id:
+                    type: integer
+                  category_id:
+                    type: integer
+                  goods_sn:
+                    type: string
+                  description:
+                    type: string
+                  image_url:
+                    type: string
+                  spec:
+                    type: array
+                    items:
+                      properties:
+                        name:
+                          type: string
+                        original_price:
+                          type: number
+                        configuration:
+                          type: object
+                        weight:
+                          type: number
+                        image_url:
+                          type: string
+                        inventory:
+                          type: integer
+                        description:
+                          type: string
   /goods/{spu_id}:
     put:
       tags:
@@ -74,10 +128,6 @@ paths:
           properties:
             name:
               type: string
-            brand_id:
-              type: integer
-            category_id:
-              type: integer
             freight_id:
               type: integer
             goods_sn:
@@ -89,6 +139,8 @@ paths:
       responses:
         200:
           description: OK
+          schema:
+            $ref: '#/definitions/goods_spu'
     get:
       tags:
       - goods
@@ -156,8 +208,9 @@ paths:
       responses:
         200:
           description: OK
-  /goods/{spu_id}/offshelf:
-    put:
+          schema:
+            $ref: '#/definitions/goods_spu'
+    delete:
       tags:
       - goods
       summary: 下架商品
@@ -265,6 +318,8 @@ paths:
       responses:
         200:
           description: OK
+          schema:
+            $ref: '#/definitions/goods_sku'
     delete:
       tags:
       - goods
@@ -327,6 +382,32 @@ paths:
       responses:
         200:
           description: OK
+          schema:
+            $ref: '#/definitions/floating_price'
+    delete:
+      tags:
+      - goods
+      summary: 取消规格浮动价格
+      description: 店铺管理员取消商品规格价格浮动
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: path
+        name: sku_id
+        type: integer
+        description: 商品SKU ID
+        required: true
+      responses:
+        200:
+          description: OK
   /shop/{shop_id}/goods:
     get:
       tags:
@@ -378,8 +459,7 @@ paths:
                         type: integer
                       description:
                         type: string
-
-  /shop/goods:
+  /shop/my/goods:
     get:
       tags:
       - goods
@@ -398,10 +478,6 @@ paths:
             type: array
             items:
               $ref: '#/definitions/goods_spu'
-      
-      
-          
-        
 definitions:
   goods_spu:
     properties:

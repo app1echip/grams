@@ -68,6 +68,18 @@ paths:
         name: search
         type: string
         description: 搜索关键字
+      - in: query
+        name: shop_id
+        type: integer
+        description: 筛选商铺
+      - in: query
+        name: category_id
+        type: integer
+        description: 筛选品类
+      - in: query
+        name: brand_id
+        type: integer
+        description: 筛选品牌
       responses:
         200:
           description: OK
@@ -309,7 +321,7 @@ paths:
           description: 无权操作商品SPU
         902:
           description: 提交的属性不合法
-  /goods/{spu_id}/spce/{sku_id}:
+  /goods/{spu_id}/spec/{sku_id}:
     put:
       tags:
       - goods
@@ -456,7 +468,7 @@ paths:
   /shop/{shop_id}/goods:
     get:
       tags:
-      - goods
+      - shop
       summary: 用户查看店铺商品
       description: 用户查看店铺内上架的商品
       parameters:
@@ -507,7 +519,7 @@ paths:
   /shop/:my/goods:
     get:
       tags:
-      - goods
+      - shop
       summary: 商家获得店铺内商品
       description: 店铺管理员查看店铺内所有商品（包含未上架商品）
       parameters:
@@ -523,6 +535,433 @@ paths:
             type: array
             items:
               $ref: '#/definitions/goods_spu'
+  /groupon:
+    get:
+      tags:
+      - groupon
+      summary: 用户获取团购活动列表
+      description: 用户获取可用的团购活动
+      parameters:
+      - in: query
+        name: page
+        type: integer
+        description: 页数
+      - in: query
+        name: pageSize
+        type: integer
+        description: 每页数量
+      - in: query
+        name: shop_id
+        type: integer
+        description: 筛选商铺
+      - in: query
+        name: spu_id
+        type: integer
+        description: 筛选商品
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              properties:
+                id:
+                  type: string
+                start_time:
+                  type: string
+                end_time:
+                  type: string
+                shop_id:
+                  type: integer
+                goods_spu_id:
+                  type: integer
+                strategy:
+                  type: object
+        902:
+          description: 查询条件错误
+  /goods/{spu_id}/groupon:
+    post:
+      tags:
+      - groupon
+      summary: 商家创建团购活动
+      description: 商家为某一商品SPU创建新的团购活动（状态未上线）
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: body
+        name: groupon_activity
+        required: true
+        schema:
+          properties:
+            activity_price:
+              type: number
+            start_time:
+              type: string
+            end_time:
+              type: string
+            strategy:
+              type: object
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/groupon_activity'
+        901:
+          description: 无权操作商品
+        902:
+          description: 提交的属性不合法
+    get:
+      tags:
+      - groupon
+      summary: 商家查看店内团购活动
+      description: 商家查看所有店内活动（包含未上线的活动）
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/groupon_activity'
+  /goods/{spu_id}/groupon/{activity_id}:
+    put:
+      tags:
+      - groupon
+      summary: 商家修改团购活动
+      description: 商家修改团购活动信息
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: path
+        name: activity_id
+        type: integer
+        description: 团购活动ID
+        required: true
+      - in: body
+        name: groupon_activity
+        required: true
+        schema:
+          properties:
+            activity_price:
+              type: number
+            start_time:
+              type: string
+            end_time:
+              type: string
+            strategy:
+              type: object
+      responses:
+        200:
+          description: OK
+        901:
+          description: 无权操作商品
+        902:
+          description: 提交的属性不合法
+        904:
+          description: 活动正在进行
+  /goods/{spu_id}/groupon/{activity_id}/online:
+    put:
+      tags:
+      - groupon
+      summary: 商家上线团购活动
+      description: 商家上线团购活动
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: path
+        name: activity_id
+        type: integer
+        description: 团购活动ID
+        required: true
+      responses:
+        200:
+          description: OK
+        901:
+          description: 无权操作商品
+    delete:
+      tags:
+      - groupon
+      summary: 商家下线团购活动
+      description: 商家下线团购活动
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: path
+        name: activity_id
+        type: integer
+        description: 团购活动ID
+        required: true
+      responses:
+        200:
+          description: OK
+        901:
+          description: 无权操作商品
+  /presale:
+    get:
+      tags:
+      - presale
+      summary: 用户获取预售活动列表
+      description: 用户获取可用的预售活动
+      parameters:
+      - in: query
+        name: page
+        type: integer
+        description: 页数
+      - in: query
+        name: pageSize
+        type: integer
+        description: 每页数量
+      - in: query
+        name: shop_id
+        type: integer
+        description: 筛选商铺
+      - in: query
+        name: spu_id
+        type: integer
+        description: 筛选商品
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              properties:
+                id:
+                  type: integer
+                start_time:
+                  type: string
+                pay_time:
+                  type: integer
+                end_time:
+                  type: string
+                shop_id:
+                  type: integer
+                goods_spu_id:
+                  type: integer
+                quantity:
+                  type: integer
+                advance_pay_price:
+                  type: number
+                rest_pay_price:
+                  type: number
+                strategy:
+                  type: object
+        902:
+          description: 查询条件错误
+  /goods/{spu_id}/presale:
+    post:
+      tags:
+      - presale
+      summary: 商家创建预售活动
+      description: 商家为某一商品SPU创建新的预售活动（状态未上线）
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: body
+        name: groupon_activity
+        required: true
+        schema:
+          properties:
+            start_time:
+              type: string
+            pay_time:
+              type: string
+            end_time:
+              type: string
+            quantity:
+              type: integer
+            advance_pay_price:
+              type: number
+            rest_pay_price:
+              type: number
+            strategy:
+              type: object
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/presale_activity'
+        901:
+          description: 无权操作商品
+        902:
+          description: 提交的属性不合法
+    get:
+      tags:
+      - presale
+      summary: 商家查看店内预售活动
+      description: 商家查看所有店内预售活动（包含未上线的活动）
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/presale_activity'
+  /goods/{spu_id}/presale/{activity_id}:
+    put:
+      tags:
+      - presale
+      summary: 商家修改预售活动
+      description: 商家修改预售活动信息
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: path
+        name: activity_id
+        type: integer
+        description: 预售活动ID
+        required: true
+      - in: body
+        name: groupon_activity
+        required: true
+        schema:
+          properties:
+            start_time:
+              type: string
+            pay_time:
+              type: string
+            end_time:
+              type: string
+            quantity:
+              type: integer
+            advance_pay_price:
+              type: number
+            rest_pay_price:
+              type: number
+            strategy:
+              type: object
+      responses:
+        200:
+          description: OK
+        901:
+          description: 无权操作商品
+        902:
+          description: 提交的属性不合法
+        904:
+          description: 活动正在进行
+  /goods/{spu_id}/presale/{activity_id}/online:
+    put:
+      tags:
+      - presale
+      summary: 商家上线预售活动
+      description: 商家上线预售活动
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: path
+        name: activity_id
+        type: integer
+        description: 预售活动ID
+        required: true
+      responses:
+        200:
+          description: OK
+        901:
+          description: 无权操作商品
+    delete:
+      tags:
+      - presale
+      summary: 商家下线预售活动
+      description: 商家下线预售活动
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: path
+        name: activity_id
+        type: integer
+        description: 预售活动ID
+        required: true
+      responses:
+        200:
+          description: OK
+        901:
+          description: 无权操作商品
+    
 definitions:
   goods_spu:
     properties:
@@ -594,3 +1033,43 @@ definitions:
         type: integer
       modified_by:
         type: integer
+  groupon_activity:
+    properties:
+      id:
+        type: integer
+      start_time:
+        type: string
+      end_time:
+        type: string
+      state:
+        type: string
+      shop_id:
+        type: integer
+      goods_spu_id:
+        type: integer
+      strategy:
+        type: object
+  presale_activity:
+    properties:
+      id:
+        type: integer
+      start_time:
+        type: string
+      pay_time:
+        type: integer
+      end_time:
+        type: string
+      state:
+        type: string
+      shop_id:
+        type: integer
+      goods_spu_id:
+        type: integer
+      quantity:
+        type: integer
+      advance_pay_price:
+        type: number
+      rest_pay_price:
+        type: number
+      strategy:
+        type: object

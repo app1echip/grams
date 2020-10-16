@@ -7,8 +7,8 @@ paths:
     post:
       tags:
       - goods
-      summary: 新建商品
-      description: 店铺管理员新增商品
+      summary: 商家新建商品
+      description: 新增商品SPU（ID自动生成，ShopID自动关联，状态未上架，规格为空）
       parameters:
       - in: header
         name: authorization
@@ -17,7 +17,7 @@ paths:
         required: true
       - in: body
         name: good_spu
-        description: 商品SPU（ID自动生成，状态未上架，规格为空）
+        description: 商品SPU
         required: true
         schema:
           properties:
@@ -36,15 +36,17 @@ paths:
             image_url:
               type: string
       responses:
-        200:
+        201:
           description: OK
           schema:
             $ref: '#/definitions/goods_spu'
+        902:
+          description: 提交的属性不合法
     get:
       tags:
       - goods
-      summary: 获取商品列表
-      description: 用户获得已上架商品列表
+      summary: 用户获取商品列表
+      description: 查询已上架商品列表
       parameters:
       - in: query
         name: page
@@ -73,41 +75,47 @@ paths:
             type: array
             items:
               properties:
-                  name:
-                    type: string
-                  brand_id:
-                    type: integer
-                  category_id:
-                    type: integer
-                  goods_sn:
-                    type: string
-                  description:
-                    type: string
-                  image_url:
-                    type: string
-                  spec:
-                    type: array
-                    items:
-                      properties:
-                        name:
-                          type: string
-                        original_price:
-                          type: number
-                        configuration:
-                          type: object
-                        weight:
-                          type: number
-                        image_url:
-                          type: string
-                        inventory:
-                          type: integer
-                        description:
-                          type: string
+                id:
+                  type: integer
+                name:
+                  type: string
+                brand_id:
+                  type: integer
+                category_id:
+                  type: integer
+                goods_sn:
+                  type: string
+                description:
+                  type: string
+                image_url:
+                  type: string
+                spec:
+                  type: array
+                  items:
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      original_price:
+                        type: number
+                      configuration:
+                        type: object
+                      weight:
+                        type: number
+                      image_url:
+                        type: string
+                      inventory:
+                        type: integer
+                      description:
+                        type: string
+        902:
+          description: 查询条件错误
   /goods/{spu_id}:
     put:
       tags:
       - goods
-      summary: 修改商品信息
+      summary: 商家修改商品SPU
       description: 店铺管理员修改商品信息
       parameters:
       - in: header
@@ -139,13 +147,15 @@ paths:
       responses:
         200:
           description: OK
-          schema:
-            $ref: '#/definitions/goods_spu'
+        901:
+          description: 无权操作商品
+        904:
+          description: 商品正在使用
     get:
       tags:
       - goods
-      summary: 查看商品信息
-      description: 用户查看已上架商品详情
+      summary: 用户查看商品信息
+      description: 查看已上架商品详情
       parameters:
       - in: path
         name: spu_id
@@ -187,12 +197,33 @@ paths:
                       type: integer
                     description:
                       type: string
+    delete:
+      tags:
+      - goods
+      summary: 商家逻辑删除商品SPU
+      description: 店铺管理员删除商品
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      responses:
+        200:
+          description: OK
+        901:
+          description: 无权操作商品
     
   /goods/{spu_id}/onshelf:
     put:
       tags:
       - goods
-      summary: 上架商品
+      summary: 商家上架商品
       description: 店铺管理员上架商品
       parameters:
       - in: header
@@ -208,12 +239,12 @@ paths:
       responses:
         200:
           description: OK
-          schema:
-            $ref: '#/definitions/goods_spu'
+        901:
+          description: 无权操作商品
     delete:
       tags:
       - goods
-      summary: 下架商品
+      summary: 商家下架商品
       description: 店铺管理员下架商品
       parameters:
       - in: header
@@ -229,14 +260,15 @@ paths:
       responses:
         200:
           description: OK
-          schema:
-            $ref: '#/definitions/goods_spu'
+        901:
+          description: 无权操作商品
+
   /goods/{spu_id}/spec:
     post:
       tags:
       - goods
-      summary: 新建商品规格
-      description: 店铺管理员新增商品规格
+      summary: 商家新建商品规格
+      description: 店铺管理员新增商品规格（ID和序号自动生成，SPUID自动关联）
       parameters:
       - in: header
         name: authorization
@@ -250,7 +282,7 @@ paths:
         required: true
       - in: body
         name: goods_sku
-        description: 商品SKU（ID自动生成）
+        description: 商品SKU
         required: true
         schema:
           properties:
@@ -273,11 +305,15 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/goods_sku'
+        901:
+          description: 无权操作商品SPU
+        902:
+          description: 提交的属性不合法
   /goods/{spu_id}/spce/{sku_id}:
     put:
       tags:
       - goods
-      summary: 修改商品规格
+      summary: 商家修改商品规格
       description: 店铺管理员修改商品规格信息
       parameters:
       - in: header
@@ -318,12 +354,12 @@ paths:
       responses:
         200:
           description: OK
-          schema:
-            $ref: '#/definitions/goods_sku'
+        902:
+          description: 提交的属性不合法
     delete:
       tags:
       - goods
-      summary: 逻辑删除商品规格
+      summary: 商家逻辑删除商品规格
       description: 店铺管理员移除可用的商品规格
       parameters:
       - in: header
@@ -344,11 +380,14 @@ paths:
       responses:
         200:
           description: OK
+        901:
+          description: 无权操作商品
+
   /goods/{spu_id}/spec/{sku_id}/floating_price:
-    put:
+    post:
       tags:
       - goods
-      summary: 新增规格浮动价格
+      summary: 商家新增规格浮动价格
       description: 店铺管理员新增商品规格价格浮动
       parameters:
       - in: header
@@ -384,11 +423,15 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/floating_price'
+        901:
+          description: 无权操作商品
+        902:
+          description: 提交的属性不合法
     delete:
       tags:
       - goods
-      summary: 取消规格浮动价格
-      description: 店铺管理员取消商品规格价格浮动
+      summary: 商家取消浮动价格
+      description: 逻辑删除商品规格价格浮动
       parameters:
       - in: header
         name: authorization
@@ -408,6 +451,8 @@ paths:
       responses:
         200:
           description: OK
+        901:
+          description: 无权操作商品
   /shop/{shop_id}/goods:
     get:
       tags:
@@ -459,11 +504,11 @@ paths:
                         type: integer
                       description:
                         type: string
-  /shop/my/goods:
+  /shop/:my/goods:
     get:
       tags:
       - goods
-      summary: 店铺管理员获得店铺商品
+      summary: 商家获得店铺内商品
       description: 店铺管理员查看店铺内所有商品（包含未上架商品）
       parameters:
       - in: header
@@ -491,6 +536,8 @@ definitions:
         type: integer
       freight_id:
         type: integer
+      shop_id:
+        type: integer
       goods_sn:
         type: string
       description:
@@ -503,11 +550,15 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/goods_sku'
+      be_deleted:
+        type: boolean
   goods_sku:
     properties:
       id:
         type: integer
       goods_spu_id:
+        type: integer
+      sku_sn:
         type: integer
       name:
         type: string
@@ -523,6 +574,8 @@ definitions:
         type: integer
       description:
         type: string
+      be_deleted:
+        type: boolean
   floating_price:
     properties:
       id:
@@ -536,4 +589,8 @@ definitions:
       end_time:
         type: string
       quantity:
+        type: integer
+      created_by:
+        type: integer
+      modified_by:
         type: integer

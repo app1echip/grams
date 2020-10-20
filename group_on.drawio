@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-10-20T09:01:47.515Z" agent="5.0 (Windows)" etag="vzQ3GW3wzUfuBGsKDZJ8" version="13.8.0" type="github">
+<mxfile host="app.diagrams.net" modified="2020-10-20T09:06:47.027Z" agent="5.0 (Windows)" etag="8jRHxiNtFekCKVhev6Hy" version="13.8.0" type="github">
   <diagram id="aPeAdNBn-ag8KA8U4H0V" name="Page-1">
     <mxGraphModel dx="1038" dy="587" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -68,6 +68,15 @@
         </mxCell>
         <mxCell id="PT3_pEk1Ymc9hAULFSsy-22" value="管理员开放团购活动" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="414" y="100" width="146" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="PT3_pEk1Ymc9hAULFSsy-26" value="商家管理员创建团购活动：POST:/goods/{spu_id}/groupon" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="490" width="310" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="PT3_pEk1Ymc9hAULFSsy-27" value="管理员开放团购活动：PUT:/goods/{spu_id}/groupon/{activity_id}/online" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="520" width="370" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="PT3_pEk1Ymc9hAULFSsy-28" value="管理员逻辑删除团购活动：DELETE:/goods/{spu_id}/groupon/{activity_id}/online" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="550" width="420" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

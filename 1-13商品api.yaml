@@ -1,0 +1,3882 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: 1-13 商品相关模块API
+schemes:
+- "http"
+tags:
+  - name: goods
+    description: 商品
+  - name: groupon
+    description: 团购活动
+  - name: presale
+    description: 预售活动
+  - name: shop
+    description: 店铺
+  - name: topic
+    description: 话题
+  - name: comment
+    description: 商品评论
+  - name: brand
+    description: 品牌
+  - name: category
+    description: 种类
+  - name: coupon
+    description: 优惠券(优惠活动)
+paths:
+  /goods:
+    post:
+      tags:
+      - goods
+      summary: 商家新建商品
+      description: "* 新增商品SPU（ID自动生成，ShopID自动关联，状态未上架，规格为空）"
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: body
+        name: good_spu
+        description: 商品SPU
+        required: true
+        schema:
+          properties:
+            name:
+              type: string
+            brand_id:
+              type: integer
+            category_id:
+              type: integer
+            freight_id:
+              type: integer
+            goods_sn:
+              type: string
+            description:
+              type: string
+            image_url:
+              type: string
+      responses:
+        201:
+          description: OK
+          schema:
+            $ref: '#/definitions/GoodsSpu'
+        902:
+          description: 属性错误
+    get:
+      tags:
+      - goods
+      summary: 用户获取商品列表
+      description: "* 查询已上架商品列表"
+      parameters:
+      - in: query
+        name: page
+        type: integer
+        description: 页数
+      - in: query
+        name: pageSize
+        type: integer
+        description: 每页数量
+      - in: query
+        name: sort
+        type: string
+        enum:
+        - price_ascending
+        - price_descending
+        - comments
+        description: 排列
+      - in: query
+        name: search
+        type: string
+        description: 搜索关键字
+      - in: query
+        name: shop_id
+        type: integer
+        description: 筛选商铺
+      - in: query
+        name: category_id
+        type: integer
+        description: 筛选品类
+      - in: query
+        name: brand_id
+        type: integer
+        description: 筛选品牌
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: string
+                brand_id:
+                  type: integer
+                category_id:
+                  type: integer
+                goods_sn:
+                  type: string
+                description:
+                  type: string
+                image_url:
+                  type: string
+                spec:
+                  type: array
+                  items:
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      original_price:
+                        type: number
+                      configuration:
+                        type: object
+                      weight:
+                        type: number
+                      image_url:
+                        type: string
+                      inventory:
+                        type: integer
+                      description:
+                        type: string
+        920:
+          description: 查询条件错误
+  /goods/{spu_id}:
+    put:
+      tags:
+      - goods
+      summary: 商家修改商品SPU
+      description: "* 店铺管理员修改商品信息"
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: body
+        name: good_spu
+        description: 商品SPU
+        required: true
+        schema:
+          properties:
+            name:
+              type: string
+            freight_id:
+              type: integer
+            goods_sn:
+              type: string
+            description:
+              type: string
+            image_url:
+              type: string
+      responses:
+        200:
+          description: OK
+        921:
+          description: 无权操作商品
+        922:
+          description: 商品正在使用
+    get:
+      tags:
+      - goods
+      summary: 用户查看商品信息
+      description: "* 查看已上架商品详情"
+      parameters:
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      responses:
+        200:
+          description: OK
+          schema:
+            properties:
+              name:
+                type: string
+              brand_id:
+                type: integer
+              category_id:
+                type: integer
+              goods_sn:
+                type: string
+              description:
+                type: string
+              image_url:
+                type: string
+              spec:
+                type: array
+                items:
+                  properties:
+                    name:
+                      type: string
+                    original_price:
+                      type: number
+                    configuration:
+                      type: object
+                    weight:
+                      type: number
+                    image_url:
+                      type: string
+                    inventory:
+                      type: integer
+                    description:
+                      type: string
+    delete:
+      tags:
+      - goods
+      summary: 商家逻辑删除商品SPU
+      description: "* 店铺管理员删除商品"
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      responses:
+        200:
+          description: OK
+        902:
+          description: 权限错误
+    
+  /goods/{spu_id}/onshelf:
+    put:
+      tags:
+      - goods
+      summary: 商家上架商品
+      description: "* 店铺管理员上架商品"
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      responses:
+        200:
+          description: OK
+        902:
+          description: 权限错误
+    delete:
+      tags:
+      - goods
+      summary: 商家下架商品
+      description: "* 店铺管理员下架商品"
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      responses:
+        200:
+          description: OK
+        902:
+          description: 权限错误
+
+  /goods/{spu_id}/spec:
+    post:
+      tags:
+      - goods
+      summary: 商家新建商品规格
+      description: "* 店铺管理员新增商品规格( ID和序号自动生成，SPUID自动关联)"
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: body
+        name: goods_sku
+        description: 商品SKU
+        required: true
+        schema:
+          properties:
+            name:
+              type: string
+            original_price:
+              type: number
+            configuration:
+              type: object
+            weight:
+              type: number
+            image_url:
+              type: number
+            inventory:
+              type: integer
+            description:
+              type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/GoodsSku'
+        902:
+          description: 权限错误
+        901:
+          description: 参数错误
+  /goods/{spu_id}/spec/{sku_id}:
+    put:
+      tags:
+      - goods
+      summary: 商家修改商品规格
+      description: "* 店铺管理员修改商品规格信息"
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: path
+        name: sku_id
+        type: integer
+        description: 商品SKU ID
+        required: true
+      - in: body
+        name: goods_sku
+        description: 商品SKU
+        required: true
+        schema:
+          properties:
+            name:
+              type: string
+            original_price:
+              type: number
+            configuration:
+              type: object
+            weight:
+              type: number
+            image_url:
+              type: number
+            inventory:
+              type: integer
+            description:
+              type: string
+      responses:
+        200:
+          description: OK
+        901:
+          description: 参数错误
+    delete:
+      tags:
+      - goods
+      summary: 商家逻辑删除商品规格
+      description: "* 店铺管理员移除可用的商品规格"
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: path
+        name: sku_id
+        type: integer
+        description: 商品SKU ID
+        required: true
+      responses:
+        200:
+          description: OK
+        902:
+          description: 权限错误
+
+  /goods/{spu_id}/spec/{sku_id}/floating_price:
+    post:
+      tags:
+      - goods
+      summary: 商家新增规格浮动价格
+      description: "* 店铺管理员新增商品规格价格浮动"
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: path
+        name: sku_id
+        type: integer
+        description: 商品SKU ID
+        required: true
+      - in: body
+        name: floating_price
+        required: true
+        schema:
+          properties:
+            activity_price:
+              type: number
+            begin_time:
+              type: string
+            end_time:
+              type: string
+            quantity:
+              type: integer
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/FloatingPrice'
+        902:
+          description: 权限错误
+        901:
+          description: 参数错误
+    delete:
+      tags:
+      - goods
+      summary: 商家取消浮动价格
+      description: "* 逻辑删除商品规格价格浮动"
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: path
+        name: sku_id
+        type: integer
+        description: 商品SKU ID
+        required: true
+      responses:
+        200:
+          description: OK
+        902:
+          description: 权限错误
+  /shop/{shop_id}/goods:
+    get:
+      tags:
+      - goods
+      summary: 用户查看店铺商品
+      description: "* 用户查看店铺内上架的商品"
+      parameters:
+      - in: path
+        name: shop_id
+        type: integer
+        description: 店铺ID
+        required: true
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: string
+                brand_id:
+                  type: integer
+                category_id:
+                  type: integer
+                goods_sn:
+                  type: string
+                description:
+                  type: string
+                image_url:
+                  type: string
+                spec:
+                  type: array
+                  items:
+                    properties:
+                      name:
+                        type: string
+                      original_price:
+                        type: number
+                      configuration:
+                        type: object
+                      weight:
+                        type: number
+                      image_url:
+                        type: string
+                      inventory:
+                        type: integer
+                      description:
+                        type: string
+  /shop/:my/goods:
+    get:
+      tags:
+      - goods
+      summary: 商家获得店铺内商品
+      description: "* 店铺管理员查看店铺内所有商品（包含未上架商品）"
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/GoodsSpu'
+  /groupon:
+    get:
+      tags:
+      - groupon
+      summary: 用户获取团购活动列表
+      description: "* 用户获取可用的团购活动"
+      parameters:
+      - in: query
+        name: page
+        type: integer
+        description: 页数
+      - in: query
+        name: pageSize
+        type: integer
+        description: 每页数量
+      - in: query
+        name: shop_id
+        type: integer
+        description: 筛选商铺
+      - in: query
+        name: spu_id
+        type: integer
+        description: 筛选商品
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              properties:
+                id:
+                  type: string
+                start_time:
+                  type: string
+                end_time:
+                  type: string
+                shop_id:
+                  type: integer
+                goods_spu_id:
+                  type: integer
+                strategy:
+                  type: object
+        901:
+          description: 参数错误
+  /goods/{spu_id}/groupon:
+    post:
+      tags:
+      - groupon
+      summary: 商家创建团购活动
+      description: "* 商家为某一商品SPU创建新的团购活动（状态未上线）"
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: body
+        name: groupon_activity
+        required: true
+        schema:
+          properties:
+            activity_price:
+              type: number
+            start_time:
+              type: string
+            end_time:
+              type: string
+            strategy:
+              type: object
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/GrouponActivity'
+        902:
+          description: 权限错误
+        901:
+          description: 参数错误
+    get:
+      tags:
+      - groupon
+      summary: 商家查看店内团购活动
+      description: "* 商家查看所有店内活动（包含未上线的活动）"
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/GrouponActivity'
+  /goods/{spu_id}/groupon/{activity_id}:
+    put:
+      tags:
+      - groupon
+      summary: 商家修改团购活动
+      description: "* 商家修改团购活动信息"
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: path
+        name: activity_id
+        type: integer
+        description: 团购活动ID
+        required: true
+      - in: body
+        name: groupon_activity
+        required: true
+        schema:
+          properties:
+            activity_price:
+              type: number
+            start_time:
+              type: string
+            end_time:
+              type: string
+            strategy:
+              type: object
+      responses:
+        200:
+          description: OK
+        902:
+          description: 权限错误
+        901:
+          description: 参数错误
+        923:
+          description: 活动正在进行
+  /goods/{spu_id}/groupon/{activity_id}/online:
+    put:
+      tags:
+      - groupon
+      summary: 商家上线团购活动
+      description: "* 商家上线团购活动"
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: path
+        name: activity_id
+        type: integer
+        description: 团购活动ID
+        required: true
+      responses:
+        200:
+          description: OK
+        902:
+          description:  权限错误
+    delete:
+      tags:
+      - groupon
+      summary: 商家下线团购活动
+      description: "* 商家下线团购活动"
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: path
+        name: activity_id
+        type: integer
+        description: 团购活动ID
+        required: true
+      responses:
+        200:
+          description: OK
+        902:
+          description: 权限错误
+  /presale:
+    get:
+      tags:
+      - presale
+      summary: 用户获取预售活动列表
+      description: "* 用户获取可用的预售活动"
+      parameters:
+      - in: query
+        name: page
+        type: integer
+        description: 页数
+      - in: query
+        name: pageSize
+        type: integer
+        description: 每页数量
+      - in: query
+        name: shop_id
+        type: integer
+        description: 筛选商铺
+      - in: query
+        name: spu_id
+        type: integer
+        description: 筛选商品
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              properties:
+                id:
+                  type: integer
+                start_time:
+                  type: string
+                pay_time:
+                  type: integer
+                end_time:
+                  type: string
+                shop_id:
+                  type: integer
+                goods_spu_id:
+                  type: integer
+                quantity:
+                  type: integer
+                advance_pay_price:
+                  type: number
+                rest_pay_price:
+                  type: number
+                strategy:
+                  type: object
+        901:
+          description: 参数错误
+  /goods/{spu_id}/presale:
+    post:
+      tags:
+      - presale
+      summary: 商家创建预售活动
+      description: "* 商家为某一商品SPU创建新的预售活动（状态未上线）"
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: body
+        name: groupon_activity
+        required: true
+        schema:
+          properties:
+            start_time:
+              type: string
+            pay_time:
+              type: string
+            end_time:
+              type: string
+            quantity:
+              type: integer
+            advance_pay_price:
+              type: number
+            rest_pay_price:
+              type: number
+            strategy:
+              type: object
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/PresaleActivity'
+        902:
+          description: 权限错误
+        901:
+          description: 参数错误
+    get:
+      tags:
+      - presale
+      summary: 商家查看店内预售活动
+      description: "* 商家查看所有店内预售活动（包含未上线的活动）"
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PresaleActivity'
+  /goods/{spu_id}/presale/{activity_id}:
+    put:
+      tags:
+      - presale
+      summary: 商家修改预售活动
+      description: "* 商家修改预售活动信息"
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: path
+        name: activity_id
+        type: integer
+        description: 预售活动ID
+        required: true
+      - in: body
+        name: groupon_activity
+        required: true
+        schema:
+          properties:
+            start_time:
+              type: string
+            pay_time:
+              type: string
+            end_time:
+              type: string
+            quantity:
+              type: integer
+            advance_pay_price:
+              type: number
+            rest_pay_price:
+              type: number
+            strategy:
+              type: object
+      responses:
+        200:
+          description: OK
+        901:
+          description: 参数错误
+        902:
+          description: 权限错误
+        923:
+          description: 活动正在进行
+  /goods/{spu_id}/presale/{activity_id}/online:
+    put:
+      tags:
+      - presale
+      summary: 商家上线预售活动
+      description: "* 商家上线预售活动"
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: path
+        name: activity_id
+        type: integer
+        description: 预售活动ID
+        required: true
+      responses:
+        200:
+          description: OK
+        902:
+          description: 权限错误
+    delete:
+      tags:
+      - presale
+      summary: 商家下线预售活动
+      description: "* 商家下线预售活动"
+      parameters:
+      - in: header
+        name: authorization
+        type: string
+        description: Token
+        required: true
+      - in: path
+        name: spu_id
+        type: integer
+        description: 商品SPU ID
+        required: true
+      - in: path
+        name: activity_id
+        type: integer
+        description: 预售活动ID
+        required: true
+      responses:
+        200:
+          description: OK
+        902:
+          description: 权限错误
+  /shop:
+    post:
+      tags:
+      - "shop"
+      summary: "卖家新增店铺"
+      operationId: "createShop"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "id"
+        description: "卖家的id"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "shop"
+        description: "店铺信息"
+        required: true
+        schema:
+          properties:
+            name:
+              type: "string"
+              description: "店铺名称"
+      responses:
+       "default":
+          description: "成功"
+          schema:
+            $ref: "#/definitions/Shop"
+       "918":
+          description: "卖家id不存在"
+  
+    get:
+      tags:
+      - "shop"
+      summary: "买家查看店铺列表"
+      operationId: "viewCommeshops"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "customer_id"
+        description: "顾客的id"
+        required: true
+        type: "string"
+      - in: "query"
+        name: "page"
+        description: "页码"
+        required: true
+        type: "integer"
+      - in: "query"
+        name: "pageSize"
+        description: "每页数目"
+        required: true
+        type: "integer"
+      responses:
+        "default":
+          description: "成功"
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: "0"
+              errMsg:
+                type: "string"
+                example: "Successful"
+              data:
+                  type: "object"
+                  properties:
+                    id:
+                      type: "integer"
+                      format: "int64"
+                    name:
+                      type: "string"
+                    
+  /shop/{shop_id}:
+    get:
+      tags:
+      - "shop"
+      summary: "所有人查看店铺信息"
+      operationId: "allViewShops"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "shop_id"
+        description: "店铺的id"
+        required: true
+        type: "string"
+      responses:
+        "default":
+          description: "成功"
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: "0"
+              errMsg:
+                type: "string"
+                example: "Successful"
+              data:
+                  type: "object"
+                  properties:
+                    id:
+                      type: "integer"
+                      format: "int64"
+                    name:
+                      type: "string"
+        "919":
+          description: "操作的shop_id不存在" 
+          
+    put:
+      tags:
+      - "shop"
+      summary: "卖家修改店铺信息"
+      operationId: "modifyShops"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "shop_id"
+        description: "店铺的id"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "shop"
+        description: "修改店铺信息"
+        required: true
+        schema:
+          properties:
+            name:
+              type: "string"
+      responses:
+        "default":
+          description: "成功"
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: "0"
+              errMsg:
+                type: "string"
+                example: "Successful"
+              data:
+                  type: "object"
+                  properties:
+                    id:
+                      type: "integer"
+                      format: "int64"
+                    name:
+                      type: "string"
+        "919":
+          description: "操作的shop_id不存在"
+          
+    delete:
+      tags:
+      - "shop"
+      summary: "卖家删除店铺"
+      operationId: "deleteShops"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "shop_id"
+        description: "店铺的id"
+        required: true
+        type: "string"
+      - in: "header"
+        name: "id"
+        description: "卖家的id"
+        required: true
+        type: "string"
+      responses:
+        "default":
+          description: "成功"
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: "0"
+              errMsg:
+                type: "string"
+                example: "Successful"
+        "919":
+          description: "操作的shop_id不存在"
+  /topic:
+    post:
+      tags:
+      - "topic"
+      summary: "新建话题"    
+      description: "* 管理员点击“创建话题”按钮后，新建一个专题"
+      operationId: "CreateSpecialTopic"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "用户token"
+        required: true
+        type: "string"
+      - in: body
+        name: topic
+        description: 话题
+        required: true
+        schema:
+          properties:
+            image_url:
+              type: string
+            content:
+              type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/Topic'
+        "901":
+          description: "参数错误"
+        "902":
+          description: "权限不足"
+
+    get:
+      tags:
+      - "topic"
+      summary: 查看话题内容
+      description: "* 
+    管理员、商户或用户浏览正在展示的话题界面"
+      operationId: "BrowseTopic"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "用户token"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "操作成功"
+          schema:
+            $ref: '#/definitions/TopicShow'
+        "901":
+          description: "参数错误"
+        "902":
+          description: "权限不足"
+         
+                
+  /topic/{topic_id}:           
+    delete:
+      tags:
+      - "topic"
+      summary: "管理员逻辑删除某一话题"    
+      description: "*
+    管理员删除正在展示的话题，为逻辑删除"
+      operationId: "DeleteTopic"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "用户token"
+        required: true
+        type: "string"
+      - name: "topic_id"
+        in: "path"
+        description: "话题id"
+        required: true
+        type: "integer"
+      responses:
+        "200":
+          description: "操作成功"
+        "924":
+          description: "话题 ID不存在"
+        "902":
+          description: "权限不足"
+  
+    put:
+      tags:
+      - "topic"
+      summary: "管理员修改话题详情"    
+      description: "* 管理员修改话题详情"
+      operationId: "EditTopic"
+      produces:
+      - "application/json"
+      parameters: 
+      - name: "authorization"
+        type: "string"
+        in: "header"
+        description: "用户token"
+        required: true
+      - name: "topic_id"
+        type: "string"
+        in: "path"
+        description: "话题id"
+        required: true
+      - name: "body"
+        in: "body"
+        description: "可修改话题信息"
+        required: true
+        schema:
+          properties:
+            image_url:
+              type: "string"
+            content:
+              type: "string"
+      responses:
+        "200":
+          description: "操作成功"
+        "901":
+          description: "参数错误"
+        "902":
+          description: "权限不足"
+    get:
+      tags:
+      - "topic"
+      summary: "管理员查看某一话题里的商品"    
+      description: "* 
+通过话题id查看某话题内展示商品"
+      operationId: "AdminSearchTopic"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "用户token"
+        required: true
+        type: "string"
+      - name: "topic_id"
+        type: "string"
+        in: "path"
+        description: "话题 id"
+        required: true
+      responses:
+        "200":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+              data:
+                $ref: "#/definitions/GoodsSku"
+        "901":
+          description: "参数错误"
+        "902":
+          description: "权限不足"
+                
+  /topic/{topic_id}/goods/{spu_id}:             
+    post:
+      tags:
+      - "topic"
+      summary: "向话题内加入商品"    
+      description: "* 管理员在某个话题内添加商品"
+      operationId: "AddToTopic"
+      produces:
+      - "application/json"
+      parameters: 
+      - name: "authorization"
+        type: "string"
+        in: "header"
+        description: "用户token"
+        required: true
+      - name: "topic_id"
+        type: "string"
+        in: "path"
+        description: "话题id"
+        required: true
+      - name: "spu_id"
+        type: "string"
+        in: "path"
+        description: "商品id"
+        required: true
+      responses:
+        "200":
+          description: "操作成功"
+          schema:
+            $ref: '#/definitions/TopicItem'
+        "901":
+          description: "参数错误"
+        "902":
+          description: "权限不足"
+    put:
+      tags:
+      - "topic"
+      summary: "更改话题中的商品"    
+      description: "* 管理员更改话题中的商品"
+      operationId: "UpdateTopic"
+      produces:
+      - "application/json"
+      parameters: 
+      - name: "authorization"
+        type: "string"
+        in: "header"
+        description: "用户token"
+        required: true
+      - name: "topic_id"
+        type: "string"
+        in: "path"
+        description: "话题id"
+        required: true
+      - name: "spu_id"
+        type: "string"
+        in: "path"
+        description: "商品id"
+        required: true
+      - name: "body"
+        in: "body"
+        description: "可修改的信息"
+        required: true
+        schema:
+          properties:
+            good_sku_id:
+              type: "integer"
+      responses:
+        "200":
+          description: "操作成功"
+        "901":
+          description: "参数错误"
+        "902":
+          description: "权限不足"
+    delete:
+      tags:
+      - "topic"
+      summary: "将商品从话题中移出"    
+      description: "* 管理员在某个话题内删除商品"
+      operationId: "RemoveFromTopic"
+      produces:
+      - "application/json"
+      parameters: 
+      - name: "authorization"
+        type: "string"
+        in: "header"
+        description: "用户token"
+        required: true
+      - name: "topic_id"
+        type: "string"
+        in: "path"
+        description: "专题id"
+        required: true
+      - name: "spu_id"
+        type: "string"
+        in: "path"
+        description: "商品id"
+        required: true
+      responses:
+        "200":
+          description: "操作成功"
+        "901":
+          description: "参数错误"
+        "902":
+          description: "权限不足"
+     
+  /topic/{topic_id}/customer:  
+    get:
+      tags:
+      - "topic"
+      summary: "用户查看某一话题里的商品"    
+      description: " * 用户通过话题id查看某话题内展示商品"
+      operationId: "UserSearchTopic"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "用户token"
+        required: true
+        type: "string"
+      - name: "topic_id"
+        type: "string"
+        in: "path"
+        description: "话题id"
+        required: true
+      responses:
+        "200":
+          description: "操作成功"
+          schema:
+            type: "object"
+            properties:
+              sku_sn:
+                type: "integer"
+              original_price:
+                type: "integer"
+              configuration:
+                type: "integer"
+              name:
+                type: "string"
+              weight:
+                type: "integer"
+              image_url:
+                type: "string"
+              inventory:
+                type: "string"
+              description:
+                type: "string"
+        "901":
+          description: "参数错误"
+          schema:
+            type: "object"
+            properties:
+              reason:
+                type: "string"
+        "902":
+          description: "权限不足"
+  /goods_sku/{goods_sku_id}/comment:
+    post:
+      tags:
+      - "comment"
+      summary: "买家新增商品的评论"
+      operationId: "createComment"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "goods_sku_id"
+        description: "评论的sku id"
+        required: true
+        type: "string"
+      - in: "header"
+        name: "orderitem_id"
+        description: "订单明细的id"
+        required: true
+        type: "string"
+      - in: "header"
+        name: "customer_id"
+        description: "顾客的id"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "comment"
+        description: "商品评论信息"
+        required: true
+        schema:
+          properties:
+            type:
+              type: "string"
+              description: "0:好评;1:中评;2:差评"
+              enum:
+              - "0"
+              - "1"
+              - "2"
+            content:
+              type: "string"
+              description: "评论的具体内容"
+      responses:
+       "default":
+          description: "成功"
+          schema:
+            $ref: "#/definitions/Comment"
+       "915":
+          description: "操作的goods_sku_id不存在"
+          
+    get:
+      tags:
+      - "comment"
+      summary: "买家查看商品的评论列表"
+      operationId: "viewgoodsComments"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "goods_sku_id"
+        description: "评论的sku id"
+        required: true
+        type: "string"
+      - in: "header"
+        name: "customer_id"
+        description: "顾客的id"
+        required: true
+        type: "string"
+      - in: "header"
+        name: "orderitem_id"
+        description: "订单明细的id"
+        required: true
+        type: "string"
+      - in: "query"
+        name: "page"
+        description: "页码"
+        required: true
+        type: "integer"
+      - in: "query"
+        name: "pageSize"
+        description: "每页数目"
+        required: true
+        type: "integer"
+      responses:
+        "default":
+          description: "成功"
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: "0"
+              errMsg:
+                type: "string"
+                example: "Successful"
+              data:
+                  type: "object"
+                  properties:
+                    id:
+                      type: "integer"
+                      format: "int64"
+                    customer_id:
+                      type: "integer"
+                      format: "int64"
+                    orderitem_id:
+                      type: "integer"
+                      format: "int64"
+                    content:
+                      type: "string"
+                    type:
+                      type: "string"
+                      description: "0:好评;1:中评;2:差评"
+                      enum:
+                      - "0"
+                      - "1"
+                      - "2"
+        "915":
+          description: "操作的goods_sku_id不存在"
+  
+  /comment/{comment_id}:
+    delete:
+      tags:
+      - "comment"
+      summary: "买家删除商品评论"
+      operationId: "deleteComment"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "comment_id"
+        description: "评论的id"
+        required: true
+        type: "string"
+      - in: "header"
+        name: "customer_id"
+        description: "顾客的id"
+        required: true
+        type: "string"
+      - in: "header"
+        name: "orderitem_id"
+        description: "订单明细的id"
+        required: true
+        type: "string"
+      responses:
+        "default":
+          description: "成功"
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: "0"
+              errMsg:
+                type: "string"
+                example: "Successful"
+        "915":
+          description: "操作的goods_sku_id不存在"
+  
+  /comment/self:
+    get:
+      tags:
+      - "comment"
+      summary: "买家查看自己的评论列表"
+      operationId: "viewSelfComments"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "customer_id"
+        description: "顾客的id"
+        required: true
+        type: "string"
+      - in: "query"
+        name: "page"
+        description: "页码"
+        required: true
+        type: "integer"
+      - in: "query"
+        name: "pageSize"
+        description: "每页数目"
+        required: true
+        type: "integer"
+      responses:
+        "default":
+          description: "成功"
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: "0"
+              errMsg:
+                type: "string"
+                example: "Successful"
+              data:
+                  type: "object"
+                  properties:
+                    id:
+                      type: "integer"
+                      format: "int64"
+                    customer_id:
+                      type: "integer"
+                      format: "int64"
+                    goods_spu_id:
+                      type: "integer"
+                      format: "int64"
+                    orderitem_id:
+                      type: "integer"
+                      format: "int64"
+                    content:
+                      type: "string"
+                    type:
+                      type: "string"
+                      description: "0:好评;1:中评;2:差评"
+                      enum:
+                      - "0"
+                      - "1"
+                      - "2"
+                    state:
+                      type: "string"
+                      description: "0:已发布;1:未发布"
+                      enum:
+                      - "0"
+                      - "1"
+                      
+  /comment:
+    get:
+      tags:
+      - "comment"
+      summary: "平台管理员查看评论列表"
+      operationId: "viewComments"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "customer_id"
+        description: "顾客的id"
+        required: true
+        type: "string"
+      - in: "header"
+        name: "goods_sku_id"
+        description: "商品的sku id"
+        required: true
+        type: "string"
+      - in: "header"
+        name: "orderitem_id"
+        description: "订单明细的id"
+        required: true
+        type: "string"
+      - in: "header"
+        name: "id"
+        description: "评论的id"
+        required: true
+        type: "string"
+      - in: "query"
+        name: "page"
+        description: "页码"
+        required: true
+        type: "integer"
+      - in: "query"
+        name: "pageSize"
+        description: "每页数目"
+        required: true
+        type: "integer"
+      responses:
+        "default":
+          description: "成功"
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: "0"
+              errMsg:
+                type: "string"
+                example: "Successful"
+              data:
+                  type: "object"
+                  properties:
+                    id:
+                      type: "integer"
+                      format: "int64"
+                    customer_id:
+                      type: "integer"
+                      format: "int64"
+                    goods_spu_id:
+                      type: "integer"
+                      format: "int64"
+                    orderitem_id:
+                      type: "integer"
+                      format: "int64"
+                    content:
+                      type: "string"
+                    type:
+                      type: "string"
+                      description: "0:好评;1:中评;2:差评"
+                      enum:
+                      - "0"
+                      - "1"
+                      - "2"
+                    state:
+                      type: "string"
+                      description: "0:已发布;1:未发布"
+                      enum:
+                      - "0"
+                      - "1"
+  
+  /comment/{comment_id}/audition:
+    put:
+      tags:
+      - "comment"
+      summary: "平台管理员审核评论"
+      description: ""
+      operationId: "auditComment"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "comment_id"
+        description: "评论的id"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "comment"
+        description: "审核评论"
+        required: true
+        schema:
+          properties:
+            status:
+              type: "string"
+      responses:
+        "916":
+          description: "评论的id不存在"
+        "917":
+          description: "评论已审核"
+        "default":
+          description: "成功"
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: "0"
+              errMsg:
+                type: "string"
+                example: "Successful"
+          
+  /shop/comment:
+    get:
+      tags:
+      - "comment"
+      summary: "卖家查看评论列表"
+      operationId: "viewshopComments"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "id"
+        description: "评论的id"
+        required: true
+        type: "string"
+      - in: "header"
+        name: "customer_id"
+        description: "顾客的id"
+        required: true
+        type: "string"
+      - in: "header"
+        name: "goods_sku_id"
+        description: "商品的sku id"
+        required: true
+        type: "string"
+      - in: "header"
+        name: "orderitem_id"
+        description: "订单明细的id"
+        required: true
+        type: "string"
+      - in: "query"
+        name: "page"
+        description: "页码"
+        required: true
+        type: "integer"
+      - in: "query"
+        name: "pageSize"
+        description: "每页数目"
+        required: true
+        type: "integer"
+      responses:
+        "default":
+          description: "成功"
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: "0"
+              errMsg:
+                type: "string"
+                example: "Successful"
+              data:
+                  type: "object"
+                  properties:
+                    id:
+                      type: "integer"
+                      format: "int64"
+                    customer_id:
+                      type: "integer"
+                      format: "int64"
+                    goods_spu_id:
+                      type: "integer"
+                      format: "int64"
+                    orderitem_id:
+                      type: "integer"
+                      format: "int64"
+                    content:
+                      type: "string"
+                    type:
+                      type: "string"
+                      description: "0:好评;1:中评;2:差评"
+                      enum:
+                      - "0"
+                      - "1"
+                      - "2"
+                    state:
+                      type: "string"
+                      description: "0:已发布;1:未发布"
+                      enum:
+                      - "0"
+                      - "1"
+  /category:
+    post:
+      tags:
+      - "category"
+      summary: "新建类别。"
+      description: ""
+      operationId: "addcategory"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "管理员token"
+        required: true
+        type: "integer"
+      - name: "brandDescription"
+        in: "body"
+        description: "类别信息"
+        required: true
+        schema:
+          properties:
+            categoryname:
+              type: "string"
+            parent_id:
+              type: "integer"
+        
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 200
+              errMsg:
+                type: "string"
+                example: "成功"
+              brand:
+                $ref: '#/definitions/goodsCategory'
+        "901":
+          description: "参数错误"
+        "902":
+          description: "权限错误"
+  /category/{category_id}:
+    get:
+      tags:
+      - "category"
+      summary: "查看类别信息。"    
+      description: ""
+      operationId: "checkcategory"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "category_id"
+        in: "path"
+        description: "类别id"
+        required: true
+        type: "integer"
+      
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 200
+              errMsg:
+                type: "string"
+                example: "成功"
+              categroy:
+                 $ref: '#/definitions/goodsCategory'
+        "901":
+          description: "参数错误"
+        "904":
+          description: "类别不存在"  
+    put:
+      tags:
+      - "category"
+      summary: "修改类别信息。"
+      description: ""
+      operationId: "modifycategory"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "管理员token"
+        required: true
+        type: "integer"
+      - name: "category_id"
+        in: "path"
+        description: "类别id"
+        required: true
+        type: "string"
+      - name: "categroy_information"
+        in: "body"
+        description: "类别详细信息"
+        required: true
+        schema:
+          properties:
+            brandName:
+              type: "string"
+            brandDescription:
+              type: "string"
+        
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 200
+              errMsg:
+                type: "string"
+                example: "成功"
+              category: 
+                $ref: '#/definitions/goodsCategory'
+        "901":
+          description: "参数错误"
+        "902":
+          description: "权限错误"
+    delete:
+      tags:
+      - "category"
+      summary: "删除类别。"
+      description: |-
+        - 删除类别。
+      operationId: "delcategory"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "管理员token"
+        required: true
+        type: "integer"
+      - name: "category_id"
+        in: "path"
+        description: "类别id"
+        required: true
+        type: "string"
+        
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 200
+              errMsg:
+                type: "string"
+                example: "成功"
+        "901":
+          description: "参数错误"
+        "904": 
+          description: "类别不存在"
+        "902":
+          description: "权限错误"
+  /category/{parent_id}/subcategroy/{category_id}:
+    put:
+      tags:
+      - "category"
+      summary: "修改子类别父类信息。"
+      description: ""
+      operationId: "modifycategory_parent"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "管理员token"
+        required: true
+        type: "integer"
+      - name: "category_id"
+        in: "path"
+        description: "类别id"
+        required: true
+        type: "string"
+      - name: "parent_id"
+        in: "path"
+        description: "父类id"
+        required: true
+        type: "string"
+      - name: "categroy_information"
+        in: "body"
+        description: "父类信息"
+        required: true
+        schema:
+          properties:
+            parent_id:
+              type: "integer"
+        
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 200
+              errMsg:
+                type: "string"
+                example: "成功"
+              category: 
+                $ref: '#/definitions/goodsCategory'
+        "901":
+          description: "参数错误"
+        "902":
+          description: "权限错误"
+    delete:
+      tags:
+      - "category"
+      summary: "逻辑删除父类信息。"
+      description: ""
+      operationId: "delcategory_parent"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "管理员token"
+        required: true
+        type: "integer"
+      - name: "category_id"
+        in: "path"
+        description: "类别id"
+        required: true
+        type: "string"
+      - name: "parent_id"
+        in: "path"
+        description: "父类id"
+        required: true
+        type: "string"
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 200
+              errMsg:
+                type: "string"
+                example: "成功"
+        "901":
+          description: "参数错误"
+        "904": 
+          description: "类别不存在"
+        "902":
+          description: "权限错误"
+  /category/{category_id}/subcategroy:
+    get:
+      tags:
+      - "category"
+      summary: "查看父类id的所有子类别。"    
+      description: ""
+      operationId: "parent_category"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "category_id"
+        in: "path"
+        description: "类别id"
+        required: true
+        type: "integer"
+      
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 200
+              errMsg:
+                type: "string"
+                example: "成功"
+              categroies:
+                 type: "object"
+                 properties:
+                  category_id:
+                    type: "integer"
+                  category_name:
+                    type: "string"
+        "901":
+          description: "参数错误"
+        "904":
+          description: "类别不存在"  
+  /category/{category_id}/goods_spu:
+    get:
+      tags:
+      - "category"
+      summary: "查看类别下商品。"    
+      description: ""
+      operationId: "category_goods"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "category_id"
+        in: "path"
+        description: "类别id"
+        required: true
+        type: "integer"
+      
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 200
+              errMsg:
+                type: "string"
+                example: "成功"
+              goods:
+                 $ref: '#/definitions/GoodsSpu'
+        "901":
+          description: "参数错误"
+        "904":
+          description: "类别不存在"  
+  /category/{category_id}/goods_spu/{spu_id}:
+    put:
+      tags:
+      - "category"
+      summary: "修改商品类别信息。"
+      description: ""
+      operationId: "modifycategory_of_goods"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "管理员token"
+        required: true
+        type: "integer"
+      - name: "spu_id"
+        in: "path"
+        description: "商品id"
+        required: true
+        type: "string"
+      - name: "category_id"
+        in: "path"
+        description: "类别id"
+        required: true
+        type: "string"
+      - name: "categroy_information"
+        in: "body"
+        description: "修改类别id"
+        required: true
+        schema:
+          properties:
+            category_id:
+              type: "integer"
+        
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 200
+              errMsg:
+                type: "string"
+                example: "成功"
+                
+        "901":
+          description: "参数错误"
+        "902":
+          description: "权限错误"
+    delete:
+      tags:
+      - "category"
+      summary: "逻辑删除商品类别信息。"
+      operationId: "delcategory_of_goods"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "管理员token"
+        required: true
+        type: "integer"
+      - name: "spu_id"
+        in: "path"
+        description: "商品id"
+        required: true
+        type: "string"
+      - name: "category_id"
+        in: "path"
+        description: "类别id"
+        required: true
+        type: "string"
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 200
+              errMsg:
+                type: "string"
+                example: "成功"
+        "901":
+          description: "参数错误"
+        "904": 
+          description: "类别不存在"
+        "902":
+          description: "权限错误"
+  /brand:
+    post:
+      tags:
+      - "brand"
+      summary: "新建品牌"
+      description: ""
+      operationId: "addBrand"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "管理员token"
+        required: true
+        type: "integer"
+      - name: "brandDescription"
+        in: "body"
+        description: "品牌信息"
+        required: true
+        schema:
+          properties:
+            brandName:
+              type: "string"
+            brandDescription:
+              type: "string"
+        
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 200
+              errMsg:
+                type: "string"
+                example: "成功"
+              brand:
+                $ref: '#/definitions/Brand'
+        "901":
+          description: "参数错误"
+        "902":
+          description: "权限错误"
+  /brands/{brand_id}:
+    get:
+      tags:
+      - "brand"
+      summary: "查看品牌信息。"    
+      description: ""
+      operationId: "checkBrand"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "brand_id"
+        in: "path"
+        description: "品牌id"
+        required: true
+        type: "integer"
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 200
+              errMsg:
+                type: "string"
+                example: "成功"
+              brand:
+                 $ref: '#/definitions/Brand'
+        "901":
+          description: "参数错误"
+        "903":
+          description: "品牌不存在"  
+    put:
+      tags:
+      - "brand"
+      summary: "修改品牌信息。"
+      description: ""
+      operationId: "modifybrand"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "管理员token"
+        required: true
+        type: "integer"
+      - name: "brand_id"
+        in: "path"
+        description: "品牌id"
+        required: true
+        type: "string"
+      - name: "brandInformation"
+        in: "body"
+        description: "品牌详细信息"
+        required: true
+        schema:
+          properties:
+            brandName:
+              type: "string"
+            brandDescription:
+              type: "string"
+        
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 200
+              errMsg:
+                type: "string"
+                example: "成功"
+              brand: 
+                $ref: '#/definitions/Brand'
+        "901":
+          description: "参数错误"
+        "902":
+          description: "权限错误"
+    delete:
+      tags:
+      - "brand"
+      summary: "删除品牌。"
+      description: |-
+        - 删除品牌。
+      operationId: "delBrand"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "管理员token"
+        required: true
+        type: "integer"
+      - name: "brand_id"
+        in: "path"
+        description: "品牌id"
+        required: true
+        type: "string"
+        
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 200
+              errMsg:
+                type: "string"
+                example: "成功"
+        "901":
+          description: "参数错误"
+        "903": 
+          description: "品牌不存在"
+        "902":
+          description: "权限错误"
+  /brands/{brand_id}/goods_spu:
+    get:
+      tags:
+      - "brand"
+      summary: "查看品牌下商品。"    
+      description: ""
+      operationId: "brand_goods"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "brand_id"
+        in: "path"
+        description: "品牌id"
+        required: true
+        type: "integer"
+      
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 200
+              errMsg:
+                type: "string"
+                example: "成功"
+              goods:
+                 $ref: '#/definitions/GoodsSpu'
+        "901":
+          description: "参数错误"
+        "903":
+          description: "品牌不存在"  
+  /brand/{brand_id}/goods_spu/{spu_id}:
+    put:
+      tags:
+      - "brand"
+      summary: "修改商品品牌信息。"
+      description: ""
+      operationId: "modifybrand_of_goods"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "管理员token"
+        required: true
+        type: "integer"
+      - name: "spu_id"
+        in: "path"
+        description: "商品id"
+        required: true
+        type: "string"
+      - name: "brand_id"
+        in: "path"
+        description: "类别id"
+        required: true
+        type: "string"
+      - name: "brand_information"
+        in: "body"
+        description: "修改品牌id"
+        required: true
+        schema:
+          properties:
+            category_id:
+              type: "integer"
+        
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 200
+              errMsg:
+                type: "string"
+                example: "成功"
+                
+        "901":
+          description: "参数错误"
+        "902":
+          description: "权限错误"
+    delete:
+      tags:
+      - "brand"
+      summary: "逻辑删除商品品牌信息。"
+      operationId: "delbrand_of_goods"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "管理员token"
+        required: true
+        type: "integer"
+      - name: "spu_id"
+        in: "path"
+        description: "商品id"
+        required: true
+        type: "string"
+      - name: "brand_id"
+        in: "path"
+        description: "品牌id"
+        required: true
+        type: "string"
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 200
+              errMsg:
+                type: "string"
+                example: "成功"
+        "901":
+          description: "参数错误"
+        "903": 
+          description: "品牌不存在"
+        "902":
+          description: "权限错误"
+  /admin/couponActivity:
+    post:
+      tags:
+        - "coupon"
+      summary: 平台管理员创建优惠活动
+      description: ""
+      operationId: "newPlatformCouponActivity"
+      parameters:
+        - in: header
+          name: authorization
+          description: Token
+          required: true
+          type: string
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CouponActivityCreate"
+      responses:
+        default:
+          description: 优惠活动信息
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+              data:
+                $ref: "#/definitions/CouponActivity"
+        901:
+          description: 参数错误
+        902:
+          description: 权限错误
+        905:
+          description: 已存在相同优惠活动
+    get:
+      tags:
+      - "coupon"
+      summary: "平台管理员查看优惠活动信息"    
+      description: ""
+      operationId: "adminShowCouponActivity"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "用户token"
+        required: true
+        type: "string"
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+              data:
+                $ref: "#/definitions/CouponActivity"
+        "906":
+          description: "用户ID不存在"
+        "902":
+          description: "优惠活动ID不存在"
+  /shop/couponActivity:
+    post:
+      tags:
+        - "coupon"
+      summary: 商户创建优惠活动
+      description: ""
+      operationId: "newShopCouponActivity"
+      parameters:
+        - in: header
+          name: authorization
+          description: Token
+          required: true
+          type: string
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CouponActivityCreate"
+      responses:
+        default:
+          description: 优惠活动信息
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+              data:
+                $ref: "#/definitions/CouponActivity"
+        901:
+          description: 参数错误
+        902:
+          description: 权限错误
+        908:
+          description: 已存在相同优惠活动
+    get:
+      tags:
+      - "coupon"
+      summary: "商户查看优惠活动信息"    
+      description: ""
+      operationId: "ShopShowCouponActivity"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "用户token"
+        required: true
+        type: "string"
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+              data:
+                $ref: "#/definitions/CouponActivity"
+        "906":
+          description: "用户ID不存在"
+        "909":
+          description: "无优惠活动"
+  /coupon:
+    post:
+      tags:
+        - "coupon"
+      summary: 创建优惠券
+      description: "* 管理员创建出优惠活动后按模板生成优惠券"
+      operationId: "newCoupon"
+      parameters:
+        - in: header
+          name: authorization
+          description: Token
+          required: true
+          type: string
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CouponCreate"
+      responses:
+        default:
+          description: 优惠券信息
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+              data:
+                $ref: "#/definitions/CouponComplete"
+        901:
+          description: 参数错误
+        902:
+          description: 权限错误
+        907:
+          description: 优惠活动ID不存在
+    get:
+      tags:
+      - "coupon"
+      summary: "用户查看平台优惠券"    
+      description: "* 用户未登陆/登陆查看全平台优惠券时调用"
+      operationId: "userCheckPlatformCoupon"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "用户token"
+        required: true
+        type: "string"
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+              data:
+                $ref: '#/definitions/CouponShow'
+        "906":
+          description: "用户ID不存在"
+        "910":
+          description: "优惠券不存在"
+  /admin/shop/{shopID}/couponActivity:
+    put:
+      tags:
+        - "coupon"
+      summary: "平台管理员下架某一店铺的优惠活动"
+      description: ""
+      operationId: "removeShopCouponByAdmin"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        type: "string"
+        description: "用户token"
+        required: true
+      - in: "path"
+        name: "shopID"
+        description: "店铺ID"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        default:
+          description: 成功
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+        "909":
+          description: 无优惠活动
+        "911":
+          description: 店铺 ID不存在
+    get:
+      tags:
+      - "coupon"
+      summary: "平台管理员查看某一店铺优惠活动信息"    
+      description: ""
+      operationId: "adminShowShopCouponActivity"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "用户token"
+        required: true
+        type: "string"
+      - in: "path"
+        name: "shopID"
+        description: "店铺ID"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+              data:
+                $ref: "#/definitions/CouponActivity"
+        "911":
+          description: "店铺 ID不存在"
+        "909":
+          description: "无优惠活动"
+  /admin/couponActivity/{couponActivityID}:
+    put:
+      tags:
+        - "coupon"
+      summary: "平台管理员修改优惠活动"
+      description: ""
+      operationId: "changeCouponByPlatform"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "authorization"
+        type: "string"
+        in: "header"
+        description: "用户token"
+        required: true
+      - in: "path"
+        name: "couponActivityID"
+        description: "优惠活动 ID"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: body
+        in: body
+        required: true
+        description: "修改优惠活动"
+        schema:
+          $ref: "#/definitions/CouponActivityShow"
+      responses:
+        default:
+          description: 成功
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+        901:
+          description: 参数错误
+        902:
+          description: 权限错误
+        907:
+          description: 优惠活动ID不存在
+  /admin/couponActivity/{couponActivityID}/remove:
+    put:
+      tags:
+        - "coupon"
+      summary: "平台管理员下架优惠活动"
+      description: ""
+      operationId: "removeCouponByAdmin"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        type: "string"
+        description: "用户token"
+        required: true
+      - in: "path"
+        name: "couponActivityID"
+        description: "优惠活动ID"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        default:
+          description: 成功
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+        "907":
+          description: 优惠活动 ID不存在
+        "912":
+          description: 优惠活动已下架
+  /shop/couponActivity/{couponActivityID}:
+    put:
+      tags:
+        - "coupon"
+      summary: "商户修改优惠活动"
+      description: ""
+      operationId: "changeCouponByMerchant"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "authorization"
+        type: "string"
+        in: "header"
+        description: "用户token"
+        required: true
+      - in: "path"
+        name: "couponActivityID"
+        description: "优惠活动ID"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: body
+        in: body
+        required: true
+        description: "修改优惠活动"
+        schema:
+          $ref: "#/definitions/CouponActivityShow"
+      responses:
+        default:
+          description: 成功
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+        901:
+          description: 参数错误
+        902:
+          description: 权限错误
+        907:
+          description: 优惠活动ID不存在
+    get:
+      tags:
+      - "coupon"
+      summary: "商户查看某一优惠活动信息"    
+      description: ""
+      operationId: "shopShowOneCouponActivity"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "用户token"
+        required: true
+        type: "string"
+      - in: "path"
+        name: "couponActivityID"
+        description: "优惠活动ID"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+              data:
+                $ref: "#/definitions/CouponActivity"
+        "906":
+          description: "用户ID不存在"
+        "907":
+          description: "优惠活动ID不存在"
+  /shop/couponActivity/{couponActivityID}/remove:
+    put:
+      tags:
+        - "coupon"
+      summary: "商户下架优惠活动"
+      description: ""
+      operationId: "removeCouponByMerchant"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        type: "string"
+        description: "用户token"
+        required: true
+      - in: "path"
+        name: "couponActivityID"
+        description: "优惠活动ID"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        default:
+          description: 成功
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+        "907":
+          description: 优惠活动ID不存在
+        "912":
+          description: 优惠活动已下架
+  /customer/coupon/{couponID}:
+    get:
+      tags:
+      - "coupon"
+      summary: "用户查看某一优惠券信息"    
+      description: ""
+      operationId: "userShowOneCoupon"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "用户token"
+        required: true
+        type: "string"
+      - in: "path"
+        name: "couponID"
+        description: "优惠券ID"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+              data:
+                $ref: '#/definitions/CouponShow'
+        "906":
+          description: "用户ID不存在"
+        "910":
+          description: "优惠券不存在"
+  /customer/coupon:
+    get:
+      tags:
+      - "coupon"
+      summary: "用户领取优惠券"    
+      description: ""
+      operationId: "userGetCoupon"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "用户token"
+        required: true
+        type: "string"
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+              data:
+                $ref: '#/definitions/CouponShow'
+        "906":
+          description: "用户ID不存在"
+        "910":
+          description: "优惠券不存在"
+  /customer/coupon/check:
+    get:
+      tags:
+      - "coupon"
+      summary: "用户查看拥有的优惠券信息"    
+      description: ""
+      operationId: "userShowCoupon"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "用户token"
+        required: true
+        type: "string"
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+              data:
+                $ref: '#/definitions/CouponShow'
+        "906":
+          description: "用户ID不存在"
+        "910":
+          description: "优惠券不存在"
+  /couponActivity/{couponActivityID}:
+    get:
+      tags:
+      - "coupon"
+      summary: "用户查看某一优惠活动信息"    
+      description: ""
+      operationId: "userShowOneCouponActivity"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "用户token"
+        required: true
+        type: "string"
+      - in: "path"
+        name: "couponActivityID"
+        description: "优惠活动 ID"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+              data:
+                $ref: '#/definitions/CouponActivityShowUser'
+        "907":
+          description: "优惠活动ID不存在"
+  /couponActivity:
+    get:
+      tags:
+      - "coupon"
+      summary: "用户查看优惠活动信息"    
+      description: "* 返回一个活动列表,包含各种优惠活动"
+      operationId: "userShowCouponActivity"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "用户token"
+        required: true
+        type: "string"
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+              data:
+                $ref: '#/definitions/CouponActivityShowUser'
+        "907":
+          description: "优惠活动ID不存在"
+  /coupon_spu/{couponActivityID}/{spu_id}:
+    post:
+      tags:
+      - "coupon"  
+      summary: "管理员将商品加入优惠活动"    
+      description: ""
+      operationId: "createCouponSpu"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "用户token"
+        required: true
+        type: "string"
+      - in: "path"
+        name: "couponActivityID"
+        description: "优惠活动 ID"
+        required: true
+        type: "integer"
+        format: "int64"
+      - in: "path"
+        name: "spu_id"
+        description: "商品 ID"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+              data:
+                $ref: '#/definitions/CouponSpu'
+        "901":
+          description: "参数错误"
+        "902":
+          description: "权限错误"
+    put:
+      tags:
+        - "coupon"
+      summary: "管理员修改优惠活动中的商品"
+      description: ""
+      operationId: "updateGoodInActivity"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        type: "string"
+        description: "用户token"
+        required: true
+      - in: "path"
+        name: "couponActivityID"
+        description: "优惠活动 ID"
+        required: true
+        type: "integer"
+        format: "int64"
+      - in: "path"
+        name: "spu_id"
+        description: "商品 ID"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: body
+        in: body
+        required: true
+        description: "修改优惠活动中的商品"
+        schema:
+          $ref: "#/definitions/CouponSpuShow"
+      responses:
+        default:
+          description: 成功
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+        "902":
+          description: "权限错误"
+        "914":
+          description: "商品 ID不存在"
+        "907":
+          description: "优惠活动 ID不存在"
+        "913":
+          description: "商品不在优惠活动中"
+  /coupon_spu/{couponActivityID}/{spu_id}/remove:
+    put:
+      tags:
+        - "coupon"
+      summary: "管理员下架优惠活动中的商品"
+      description: ""
+      operationId: "removeGoodInActivity"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        type: "string"
+        description: "用户token"
+        required: true
+      - in: "path"
+        name: "couponActivityID"
+        description: "优惠活动 ID"
+        required: true
+        type: "integer"
+        format: "int64"
+      - in: "path"
+        name: "spu_id"
+        description: "商品 ID"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        default:
+          description: 成功
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+        "902":
+          description: "权限错误"
+        "914":
+          description: "商品 ID不存在"
+        "907":
+          description: "优惠活动 ID不存在"
+        "913":
+          description: "商品不在优惠活动中"
+  /coupon_spu/{couponActivityID}:
+    get:
+      tags:
+      - "coupon"
+      summary: "管理员查看某个优惠活动中的商品"    
+      description: ""
+      operationId: "ShowGoodInCouponActivity"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "用户token"
+        required: true
+        type: "string"
+      - in: "path"
+        name: "couponActivityID"
+        description: "优惠活动 ID"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+              data:
+                $ref: '#/definitions/CouponSpu'  
+        "907":
+          description: "优惠活动 ID不存在"
+  /coupon_spu/{spu_id}/check:
+    get:
+      tags:
+      - "coupon"
+      summary: "管理员查看商品参与的优惠活动"    
+      description: "* 查看商品参与的优惠活动，也可查看商品是否参与了优惠活动"
+      operationId: "ShowGoodIfInActivity"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: "用户token"
+        required: true
+        type: "string"
+      - in: "path"
+        name: "spu_id"
+        description: "商品 ID"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "default":
+          description: ""
+          schema:
+            type: "object"
+            properties:
+              errNo:
+                type: "integer"
+                example: 0
+              errMsg: 
+                type: "string"
+                example: "成功"
+              data:
+                $ref: '#/definitions/CouponSpu'  
+        "913":
+          description: "商品不在优惠活动中"        
+                
+definitions:
+  GoodsSpu:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      brand_id:
+        type: integer
+      category_id:
+        type: integer
+      freight_id:
+        type: integer
+      shop_id:
+        type: integer
+      goods_sn:
+        type: string
+      description:
+        type: string
+      image_url:
+        type: string
+      state:
+        type: string
+      spec:
+        type: array
+        items:
+          $ref: '#/definitions/GoodsSku'
+      be_deleted:
+        type: boolean
+  GoodsSku:
+    properties:
+      id:
+        type: integer
+      goods_spu_id:
+        type: integer
+      sku_sn:
+        type: integer
+      name:
+        type: string
+      original_price:
+        type: number
+      configuration:
+        type: object
+      weight:
+        type: number
+      image_url:
+        type: string
+      inventory:
+        type: integer
+      description:
+        type: string
+      be_deleted:
+        type: boolean
+  FloatingPrice:
+    properties:
+      id:
+        type: integer
+      goods_sku_id:
+        type: integer
+      activity_price:
+        type: number
+      begin_time:
+        type: string
+      end_time:
+        type: string
+      quantity:
+        type: integer
+      created_by:
+        type: integer
+      modified_by:
+        type: integer
+      be_deleted:
+        type: integer
+  GrouponActivity:
+    properties:
+      id:
+        type: integer
+      start_time:
+        type: string
+      end_time:
+        type: string
+      state:
+        type: string
+      shop_id:
+        type: integer
+      goods_spu_id:
+        type: integer
+      strategy:
+        type: object
+  PresaleActivity:
+    properties:
+      id:
+        type: integer
+      start_time:
+        type: string
+      pay_time:
+        type: integer
+      end_time:
+        type: string
+      state:
+        type: string
+      shop_id:
+        type: integer
+      goods_spu_id:
+        type: integer
+      quantity:
+        type: integer
+      advance_pay_price:
+        type: number
+      rest_pay_price:
+        type: number
+      strategy:
+        type: object
+  Comment:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      customer_id:
+        type: "integer"
+        format: "int64"
+      goods_sku_id:
+        type: "integer"
+        format: "int64"
+      orderitem_id:
+        type: "integer"
+        format: "int64"
+      content:
+        type: "string"
+      type:
+        type: "string"
+        description: "0:好评;1:中评;2:差评"
+        enum:
+        - "0"
+        - "1"
+        - "2"
+      state:
+        type: "string"
+        description: "0:已发布;1:未发布"
+        enum:
+        - "0"
+        - "1"
+    xml:
+      name: "Comment"
+  Shop:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+  TopicItem:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      topic_id:
+        type: "integer"
+        format: "int64"
+      goods_sku_id:
+        type: "integer"
+        format: "int64"
+  Topic:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      image_url:
+        type: "string"
+      content:
+        type: string
+  TopicShow:
+    type: "object"
+    properties:
+      image_url:
+        type: "string"
+      content:
+        type: string
+  goodsCategory:
+    type: "object"
+    properties:
+      category_id:
+        type: "integer"
+      category_name:
+        type: "string"
+      parent_id:
+        type: "integer"
+  Brand:
+    type: "object"
+    properties:
+      brand_id:
+        type: "integer"
+        format: "int64"
+      brand_name: 
+        type: "string"
+      brand_description: 
+        type: "string"
+      image_url:
+        type: "string"
+  CouponSpuShow:
+    properties:
+      activity_id:
+        type: integer
+      spu_id:
+        type: integer
+  CouponSpu:
+    properties:
+      id: 
+        type: integer
+      activity_id:
+        type: integer
+      spu_id:
+        type: integer
+  CouponActivityCreate:
+    properties:
+      name:
+        type: string
+      begin_time:
+        type: string
+      end_time:
+        type: string
+      state:
+        type: string
+      shop_id:
+        type: integer
+      quantity:
+        type: integer
+      quantity_type:
+        type: integer
+      duration:
+        type: integer
+      strategy:
+        type: string
+  CouponActivity:
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+      begin_time:
+        type: string
+      end_time:
+        type: string
+      state:
+        type: string
+      shop_id:
+        type: integer
+      quantity:
+        type: integer
+      quantity_type:
+        type: integer
+      duration:
+        type: integer
+      strategy:
+        type: string
+  CouponActivityShow:
+    properties:
+      name:
+        type: string
+      begin_time:
+        type: string
+      end_time:
+        type: string
+      state:
+        type: string
+      quantity:
+        type: integer
+      quantity_type:
+        type: integer
+      duration:
+        type: integer
+      strategy:
+        type: string
+  CouponActivityShowUser:
+    properties:
+      name:
+        type: string
+      begin_time:
+        type: string
+      end_time:
+        type: string
+      quantity:
+        type: integer
+      duration:
+        type: integer
+      strategy:
+        type: string
+  CouponComplete:
+    properties:
+      id:
+        type: integer
+        format: int64
+      coupon_sn:
+        type: integer
+        format: int64
+      name:
+        type: string
+      customer_id:
+        type: integer
+        format: int64
+      activity_id:
+        type: integer
+        format: int64
+      image_url:
+        type: string
+      begin_time:
+        type: string
+      end_time:
+        type: string
+      state: 
+        type: string
+  CouponShow:
+    properties:
+      coupon_sn:
+        type: integer
+        format: int64
+      name:
+        type: string
+      image_url:
+        type: string
+      begin_time:
+        type: string
+      end_time:
+        type: string
+      state: 
+        type: string
+  CouponCreate:
+    properties:
+      name:
+        type: string
+      activity_id:
+        type: integer
+        format: int64
+      quantity:
+        type: integer
+      image_url:
+        type: string
+      begin_time:
+        type: string
+      end_time:
+        type: string
+      state: 
+        type: string

@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-10-25T10:20:36.859Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="BeriooA0Yqc8VdpHJRhu" version="13.8.2" type="github">
+<mxfile host="app.diagrams.net" modified="2020-10-25T10:21:37.647Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="DM0Vs2W7Gxg8qf4i700q" version="13.8.2" type="github">
   <diagram id="Sx-x-IRmpGKMNTLv8waG" name="Page-1">
     <mxGraphModel dx="756" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -708,6 +708,14 @@
             </Array>
           </mxGeometry>
         </mxCell>
+        <mxCell id="miaCfsBNw37RsnTq7TJS-58" value="返回商品详情" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="miaCfsBNw37RsnTq7TJS-44" target="miaCfsBNw37RsnTq7TJS-51">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="250" y="3240" />
+              <mxPoint x="250" y="3240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
         <mxCell id="miaCfsBNw37RsnTq7TJS-44" value="" style="shape=umlLifeline;participant=umlEntity;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;" vertex="1" parent="1">
           <mxGeometry x="380" y="2960" width="40" height="300" as="geometry" />
         </mxCell>
@@ -748,7 +756,7 @@
         <mxCell id="miaCfsBNw37RsnTq7TJS-50" value="数据库" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
           <mxGeometry x="515" y="2923" width="50" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="miaCfsBNw37RsnTq7TJS-53" value="查看商品信息" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="miaCfsBNw37RsnTq7TJS-51" target="miaCfsBNw37RsnTq7TJS-44">
+        <mxCell id="miaCfsBNw37RsnTq7TJS-53" value="查看商品详情" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="miaCfsBNw37RsnTq7TJS-51" target="miaCfsBNw37RsnTq7TJS-44">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="180" y="3180" />

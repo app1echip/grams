@@ -1,9 +1,12 @@
-<mxfile host="app.diagrams.net" modified="2020-10-25T13:58:37.412Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="0jbJSsy7jmEzaBCsNLxi" version="13.8.2" type="github">
+<mxfile host="app.diagrams.net" modified="2020-10-25T14:11:58.869Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="nzVtuCbo6_gCrHt7ylcp" version="13.8.2" type="github">
   <diagram id="FmJuLPvnspw901Y-ceh1" name="Page-1">
     <mxGraphModel dx="996" dy="-1380" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="5n66u_AL6gjS_8V3Dtse-155" value="店铺管理员" style="shape=umlFrame;whiteSpace=wrap;html=1;width=70;height=30;" vertex="1" parent="1">
+          <mxGeometry x="600" y="2240" width="740" height="540" as="geometry" />
+        </mxCell>
         <mxCell id="5n66u_AL6gjS_8V3Dtse-105" value="活动" style="shape=umlFrame;whiteSpace=wrap;html=1;width=60;height=30;" vertex="1" parent="1">
           <mxGeometry x="40" y="3120" width="520" height="400" as="geometry" />
         </mxCell>
@@ -513,8 +516,44 @@
         <mxCell id="5n66u_AL6gjS_8V3Dtse-154" value="" style="shape=mxgraph.bpmn.shape;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;outline=end;symbol=terminate;" vertex="1" parent="1">
           <mxGeometry x="1250.25" y="2736.75" width="19.5" height="19.5" as="geometry" />
         </mxCell>
-        <mxCell id="5n66u_AL6gjS_8V3Dtse-155" value="店铺管理员" style="shape=umlFrame;whiteSpace=wrap;html=1;width=70;height=30;" vertex="1" parent="1">
-          <mxGeometry x="600" y="2240" width="740" height="540" as="geometry" />
+        <mxCell id="5n66u_AL6gjS_8V3Dtse-160" value="权限不足" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classicThin;endFill=1;" edge="1" parent="1" source="5n66u_AL6gjS_8V3Dtse-156" target="5n66u_AL6gjS_8V3Dtse-161">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="850" y="2960" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5n66u_AL6gjS_8V3Dtse-164" value="有效" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classicThin;endFill=1;" edge="1" parent="1" source="5n66u_AL6gjS_8V3Dtse-156" target="5n66u_AL6gjS_8V3Dtse-163">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5n66u_AL6gjS_8V3Dtse-156" value="do: 检查权限" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="710" y="2930" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5n66u_AL6gjS_8V3Dtse-157" value="用户请求&amp;nbsp;" style="html=1;verticalAlign=bottom;startArrow=circle;startFill=1;endArrow=classicThin;startSize=6;endSize=8;endFill=1;" edge="1" parent="1" target="5n66u_AL6gjS_8V3Dtse-156">
+          <mxGeometry x="0.1429" width="80" relative="1" as="geometry">
+            <mxPoint x="760" y="2860" as="sourcePoint" />
+            <mxPoint x="759.5" y="2937" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5n66u_AL6gjS_8V3Dtse-161" value="" style="shape=mxgraph.bpmn.shape;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;outline=end;symbol=terminate;" vertex="1" parent="1">
+          <mxGeometry x="890.88" y="2950.88" width="18.25" height="18.25" as="geometry" />
+        </mxCell>
+        <mxCell id="5n66u_AL6gjS_8V3Dtse-166" value="冲突" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=classicThin;endFill=1;" edge="1" parent="1" source="5n66u_AL6gjS_8V3Dtse-163" target="5n66u_AL6gjS_8V3Dtse-165">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5n66u_AL6gjS_8V3Dtse-163" value="do: 数据合法性" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="710" y="3030" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5n66u_AL6gjS_8V3Dtse-165" value="" style="shape=mxgraph.bpmn.shape;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;outline=end;symbol=terminate;" vertex="1" parent="1">
+          <mxGeometry x="890.88" y="3050.87" width="18.25" height="18.25" as="geometry" />
+        </mxCell>
+        <mxCell id="5n66u_AL6gjS_8V3Dtse-167" value="冲突" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=classicThin;endFill=1;" edge="1" parent="1" target="5n66u_AL6gjS_8V3Dtse-168" source="5n66u_AL6gjS_8V3Dtse-163">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="740" y="3129.125" as="sourcePoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5n66u_AL6gjS_8V3Dtse-168" value="" style="shape=mxgraph.bpmn.shape;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;outline=end;symbol=terminate;" vertex="1" parent="1">
+          <mxGeometry x="750.87" y="3140" width="18.25" height="18.25" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

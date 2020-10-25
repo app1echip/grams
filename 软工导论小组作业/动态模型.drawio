@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-10-25T10:03:44.230Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="Yfnx_owPE_TMbFzafBao" version="13.8.2" type="github">
+<mxfile host="app.diagrams.net" modified="2020-10-25T10:07:42.217Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="H2cH9O3g6xeZdLO-_SU_" version="13.8.2" type="github">
   <diagram id="Sx-x-IRmpGKMNTLv8waG" name="Page-1">
-    <mxGraphModel dx="756" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2025" dy="833" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -653,7 +653,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="miaCfsBNw37RsnTq7TJS-5" value="" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="50" y="2960" width="20" height="320" as="geometry" />
+          <mxGeometry x="50" y="2960" width="20" height="300" as="geometry" />
         </mxCell>
         <mxCell id="miaCfsBNw37RsnTq7TJS-15" value="验证角色权限" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="miaCfsBNw37RsnTq7TJS-6" target="miaCfsBNw37RsnTq7TJS-7">
           <mxGeometry relative="1" as="geometry">
@@ -664,7 +664,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="miaCfsBNw37RsnTq7TJS-6" value="" style="shape=umlLifeline;participant=umlEntity;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="160" y="2960" width="40" height="320" as="geometry" />
+          <mxGeometry x="160" y="2960" width="40" height="300" as="geometry" />
         </mxCell>
         <mxCell id="miaCfsBNw37RsnTq7TJS-19" value="验证数据合法性" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="miaCfsBNw37RsnTq7TJS-7" target="miaCfsBNw37RsnTq7TJS-8">
           <mxGeometry relative="1" as="geometry">
@@ -699,7 +699,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="miaCfsBNw37RsnTq7TJS-7" value="" style="shape=umlLifeline;participant=umlEntity;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="278.75" y="2960" width="40" height="320" as="geometry" />
+          <mxGeometry x="278.75" y="2960" width="40" height="300" as="geometry" />
         </mxCell>
         <mxCell id="miaCfsBNw37RsnTq7TJS-21" value="数据保存成功" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="miaCfsBNw37RsnTq7TJS-8" target="miaCfsBNw37RsnTq7TJS-7">
           <mxGeometry relative="1" as="geometry">
@@ -718,7 +718,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="miaCfsBNw37RsnTq7TJS-8" value="" style="shape=umlLifeline;participant=umlEntity;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="400" y="2960" width="40" height="320" as="geometry" />
+          <mxGeometry x="400" y="2960" width="40" height="300" as="geometry" />
         </mxCell>
         <mxCell id="miaCfsBNw37RsnTq7TJS-12" value="店铺管理员" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
           <mxGeometry x="20" y="2923" width="80" height="20" as="geometry" />

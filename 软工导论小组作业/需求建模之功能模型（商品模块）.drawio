@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-10-26T10:25:14.844Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="dZqZZow79RmdEZbKIRmt" version="13.8.2" type="github">
+<mxfile host="app.diagrams.net" modified="2020-10-26T10:26:24.857Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="NpSNRE8jDG4lpZLDk9qw" version="13.8.2" type="github">
   <diagram id="tlwxFYN7nEPO611R5yER" name="Page-1">
     <mxGraphModel dx="1114" dy="786" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -34,6 +34,14 @@
         <mxCell id="JlzYUt2903bJceBeCsOK-22" value="商品ID" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JlzYUt2903bJceBeCsOK-11" target="JlzYUt2903bJceBeCsOK-13">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="JlzYUt2903bJceBeCsOK-30" value="商品ID" style="edgeStyle=orthogonalEdgeStyle;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JlzYUt2903bJceBeCsOK-11" target="JlzYUt2903bJceBeCsOK-12">
+          <mxGeometry x="-0.6" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JlzYUt2903bJceBeCsOK-31" value="商品ID" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JlzYUt2903bJceBeCsOK-11" target="JlzYUt2903bJceBeCsOK-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="JlzYUt2903bJceBeCsOK-11" value="商品服务" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="360" y="560" width="80" height="40" as="geometry" />
         </mxCell>
@@ -41,7 +49,9 @@
           <mxGeometry x="360" y="800" width="80" height="40" as="geometry" />
         </mxCell>
         <mxCell id="JlzYUt2903bJceBeCsOK-23" value="优惠活动ID" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JlzYUt2903bJceBeCsOK-13" target="JlzYUt2903bJceBeCsOK-14">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry x="0.5625" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="JlzYUt2903bJceBeCsOK-13" value="活动服务" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="560" y="680" width="80" height="40" as="geometry" />

@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-10-26T10:18:35.267Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="EZo42N70ST_0L8H4L-Pu" version="13.8.2" type="github">
+<mxfile host="app.diagrams.net" modified="2020-10-26T10:21:13.805Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="P3WQWeYBm7BsSvuYzQEf" version="13.8.2" type="github">
   <diagram id="tlwxFYN7nEPO611R5yER" name="Page-1">
     <mxGraphModel dx="1114" dy="786" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -49,8 +49,13 @@
         <mxCell id="JlzYUt2903bJceBeCsOK-14" value="优惠券服务" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="160" y="680" width="80" height="40" as="geometry" />
         </mxCell>
+        <mxCell id="JlzYUt2903bJceBeCsOK-26" value="评论信息,删除请求" style="edgeStyle=orthogonalEdgeStyle;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JlzYUt2903bJceBeCsOK-15" target="JlzYUt2903bJceBeCsOK-12">
+          <mxGeometry x="0.0667" y="10" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="JlzYUt2903bJceBeCsOK-15" value="用户" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="640" y="880" width="80" height="40" as="geometry" />
+          <mxGeometry x="80" y="880" width="80" height="40" as="geometry" />
         </mxCell>
         <mxCell id="JlzYUt2903bJceBeCsOK-18" value="商品信息,上下架控制" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;" edge="1" parent="1" source="JlzYUt2903bJceBeCsOK-16" target="JlzYUt2903bJceBeCsOK-11">
           <mxGeometry relative="1" as="geometry">
@@ -73,8 +78,13 @@
         <mxCell id="JlzYUt2903bJceBeCsOK-16" value="店铺管理员" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="360" y="400" width="80" height="40" as="geometry" />
         </mxCell>
+        <mxCell id="JlzYUt2903bJceBeCsOK-25" value="审核信息" style="edgeStyle=orthogonalEdgeStyle;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JlzYUt2903bJceBeCsOK-17" target="JlzYUt2903bJceBeCsOK-12">
+          <mxGeometry y="-10" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="JlzYUt2903bJceBeCsOK-17" value="平台管理员" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="80" y="880" width="80" height="40" as="geometry" />
+          <mxGeometry x="640" y="880" width="80" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

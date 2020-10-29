@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-10-29T15:33:03.747Z" agent="5.0 (Windows)" etag="0PmdLIPKgX_relrJXNRC" version="13.8.7" type="github">
+<mxfile host="app.diagrams.net" modified="2020-10-29T15:35:06.750Z" agent="5.0 (Windows)" etag="gVXid9N6z-CTllgluoPO" version="13.8.7" type="github">
   <diagram id="aPeAdNBn-ag8KA8U4H0V" name="Page-1">
     <mxGraphModel dx="1038" dy="587" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -76,8 +76,8 @@
         <mxCell id="PT3_pEk1Ymc9hAULFSsy-22" value="管理员开放团购活动" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="414" y="100" width="146" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="PT3_pEk1Ymc9hAULFSsy-26" value="&lt;font style=&quot;font-size: 14px&quot;&gt;管理员创建团购活动:POST:/shops/{shopId}/spus/{id}/groupons&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;" parent="1" vertex="1">
-          <mxGeometry x="320" y="585" width="400" height="20" as="geometry" />
+        <mxCell id="PT3_pEk1Ymc9hAULFSsy-26" value="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;span&gt;&lt;span&gt;管理员对SPU新增团购活动&lt;/span&gt;&lt;/span&gt;:POST:/shops/{shopId}/spus/{id}/groupons&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;" parent="1" vertex="1">
+          <mxGeometry x="320" y="585" width="440" height="20" as="geometry" />
         </mxCell>
         <mxCell id="PT3_pEk1Ymc9hAULFSsy-27" value="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;span&gt;&lt;span&gt;&lt;span class=&quot;opblock-summary-method&quot;&gt;&lt;/span&gt;&lt;span class=&quot;opblock-summary-path&quot;&gt;&lt;a class=&quot;nostyle&quot;&gt;&lt;span&gt;​&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span&gt;&lt;span&gt;&lt;span class=&quot;opblock-summary-path&quot;&gt;&lt;a class=&quot;nostyle&quot;&gt;&lt;span&gt;&lt;span&gt;&lt;span&gt;&lt;span class=&quot;opblock-summary-path&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;a class=&quot;nostyle&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span&gt;&lt;span&gt;管理员修改SPU团购活动(开放):PUT:&lt;/span&gt;&lt;/span&gt;/shops​/{shopId}​/groupons​/{id}&lt;span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span&gt;&lt;span&gt;&lt;span class=&quot;opblock-summary-path&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span&gt;&lt;span&gt;&lt;span class=&quot;opblock-summary-path&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span&gt;&lt;span&gt;&lt;span class=&quot;opblock-summary-path&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="320" y="620" width="420" height="20" as="geometry" />

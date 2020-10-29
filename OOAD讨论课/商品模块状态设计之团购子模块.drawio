@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-10-20T10:41:50.802Z" agent="5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" etag="CMcbbXLNrNXTfucU4YIm" version="13.8.0" type="github">
+<mxfile host="app.diagrams.net" modified="2020-10-29T15:33:03.747Z" agent="5.0 (Windows)" etag="0PmdLIPKgX_relrJXNRC" version="13.8.7" type="github">
   <diagram id="aPeAdNBn-ag8KA8U4H0V" name="Page-1">
-    <mxGraphModel dx="1376" dy="725" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1038" dy="587" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -76,14 +76,14 @@
         <mxCell id="PT3_pEk1Ymc9hAULFSsy-22" value="管理员开放团购活动" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="414" y="100" width="146" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="PT3_pEk1Ymc9hAULFSsy-26" value="&lt;font style=&quot;font-size: 14px&quot;&gt;商家管理员创建团购活动&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;" parent="1" vertex="1">
-          <mxGeometry x="245" y="585" width="310" height="20" as="geometry" />
+        <mxCell id="PT3_pEk1Ymc9hAULFSsy-26" value="&lt;font style=&quot;font-size: 14px&quot;&gt;管理员创建团购活动:POST:/shops/{shopId}/spus/{id}/groupons&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;" parent="1" vertex="1">
+          <mxGeometry x="320" y="585" width="400" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="PT3_pEk1Ymc9hAULFSsy-27" value="&lt;font style=&quot;font-size: 14px&quot;&gt;管理员开放团购活动&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="202" y="620" width="370" height="20" as="geometry" />
+        <mxCell id="PT3_pEk1Ymc9hAULFSsy-27" value="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;span&gt;&lt;span&gt;&lt;span class=&quot;opblock-summary-method&quot;&gt;&lt;/span&gt;&lt;span class=&quot;opblock-summary-path&quot;&gt;&lt;a class=&quot;nostyle&quot;&gt;&lt;span&gt;​&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span&gt;&lt;span&gt;&lt;span class=&quot;opblock-summary-path&quot;&gt;&lt;a class=&quot;nostyle&quot;&gt;&lt;span&gt;&lt;span&gt;&lt;span&gt;&lt;span class=&quot;opblock-summary-path&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;a class=&quot;nostyle&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span&gt;&lt;span&gt;管理员修改SPU团购活动(开放):PUT:&lt;/span&gt;&lt;/span&gt;/shops​/{shopId}​/groupons​/{id}&lt;span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span&gt;&lt;span&gt;&lt;span class=&quot;opblock-summary-path&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span&gt;&lt;span&gt;&lt;span class=&quot;opblock-summary-path&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span&gt;&lt;span&gt;&lt;span class=&quot;opblock-summary-path&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="320" y="620" width="420" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="PT3_pEk1Ymc9hAULFSsy-28" value="&lt;font style=&quot;font-size: 14px&quot;&gt;管理员逻辑删除团购活动&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;" parent="1" vertex="1">
-          <mxGeometry x="190" y="650" width="420" height="20" as="geometry" />
+        <mxCell id="PT3_pEk1Ymc9hAULFSsy-28" value="&lt;font style=&quot;font-size: 14px&quot;&gt;管理员逻辑删除团购活动：DELETE:/shops/{shopId}/groupons/{id}&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;" parent="1" vertex="1">
+          <mxGeometry x="320" y="650" width="420" height="20" as="geometry" />
         </mxCell>
         <mxCell id="PT3_pEk1Ymc9hAULFSsy-35" style="edgeStyle=orthogonalEdgeStyle;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="PT3_pEk1Ymc9hAULFSsy-29" target="PT3_pEk1Ymc9hAULFSsy-1" edge="1">
           <mxGeometry relative="1" as="geometry" />

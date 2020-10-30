@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-10-30T00:45:15.178Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="50m1eOPwf8m4nOPd-Lak" version="13.8.7" type="github">
+<mxfile host="app.diagrams.net" modified="2020-10-30T00:52:38.211Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="Oy64JVznkLYvxNDi0MAN" version="13.8.7" type="github">
   <diagram id="7e0GtD7TXZg0hHKQMnAh" name="Page-1">
     <mxGraphModel dx="1662" dy="1167" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -21,7 +21,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="PHka3gXeUMbXcuHf-Wi0-15" value="逻辑删除" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="PHka3gXeUMbXcuHf-Wi0-4" target="PHka3gXeUMbXcuHf-Wi0-7" edge="1">
+        <mxCell id="PHka3gXeUMbXcuHf-Wi0-15" value="删除" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="PHka3gXeUMbXcuHf-Wi0-4" target="PHka3gXeUMbXcuHf-Wi0-7" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="PHka3gXeUMbXcuHf-Wi0-4" value="未上架" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" parent="1" vertex="1">
@@ -43,6 +43,9 @@
         </mxCell>
         <mxCell id="PHka3gXeUMbXcuHf-Wi0-7" value="已删除" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" parent="1" vertex="1">
           <mxGeometry x="240" y="360" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="vuvh_XPk0Kepz3PNG1x8-1" value="SPU状态：&lt;br&gt;新建：POST /shops/{id}/spus&lt;br&gt;上架：&lt;span&gt;PUT&amp;nbsp;&lt;/span&gt;&lt;span&gt;​/shops​/{shopId}​/spus​/{id}​/onshelves&lt;br&gt;&lt;/span&gt;&lt;span&gt;下架：&lt;/span&gt;&lt;span&gt;PUT&amp;nbsp;&lt;/span&gt;&lt;span&gt;​/shops​/{shopId}​/spus​/{id}​/offshelves&lt;br&gt;&lt;/span&gt;&lt;span&gt;删除：DELETE ​/shops​/{shopId}​/spus​/{id}&lt;br&gt;SKU无状态&lt;br&gt;&lt;/span&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;align=left;" vertex="1" parent="1">
+          <mxGeometry x="120" y="440" width="290" height="100" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

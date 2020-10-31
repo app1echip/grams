@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-10-31T12:15:20.065Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="sqCK6Rn_SwMhDIJglSt1" version="13.8.8" type="github">
+<mxfile host="app.diagrams.net" modified="2020-10-31T12:17:50.879Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="bsk6nr3AQufVGLuqU2mQ" version="13.8.8" type="github">
   <diagram id="baO0POOujpLAagc7hYty" name="Page-1">
-    <mxGraphModel dx="1384" dy="699" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1038" dy="524" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -69,35 +69,41 @@
         <mxCell id="afA0k3A63ngMIBR7NG_--20" value="管理员开放预售活动" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="414" y="100" width="146" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="WmkqcMxoooxkoH0v1Bdv-1" value="" style="shape=table;html=1;whiteSpace=wrap;startSize=0;container=1;collapsible=0;childLayout=tableLayout;" vertex="1" parent="1">
+        <mxCell id="WmkqcMxoooxkoH0v1Bdv-1" value="" style="shape=table;html=1;whiteSpace=wrap;startSize=0;container=1;collapsible=0;childLayout=tableLayout;" parent="1" vertex="1">
           <mxGeometry x="250" y="510" width="440" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="WmkqcMxoooxkoH0v1Bdv-2" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="WmkqcMxoooxkoH0v1Bdv-1">
+        <mxCell id="WmkqcMxoooxkoH0v1Bdv-2" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="WmkqcMxoooxkoH0v1Bdv-1" vertex="1">
           <mxGeometry width="440" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="WmkqcMxoooxkoH0v1Bdv-3" value="管理员新增SPU预售活动" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;" vertex="1" parent="WmkqcMxoooxkoH0v1Bdv-2">
+        <mxCell id="WmkqcMxoooxkoH0v1Bdv-3" value="管理员新增SPU预售活动" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;" parent="WmkqcMxoooxkoH0v1Bdv-2" vertex="1">
           <mxGeometry width="180" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="WmkqcMxoooxkoH0v1Bdv-4" value="POST /shops/{shopId}/spus/{id}/presales" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;" vertex="1" parent="WmkqcMxoooxkoH0v1Bdv-2">
+        <mxCell id="WmkqcMxoooxkoH0v1Bdv-4" value="POST /shops/{shopId}/spus/{id}/presales" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;" parent="WmkqcMxoooxkoH0v1Bdv-2" vertex="1">
           <mxGeometry x="180" width="260" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="WmkqcMxoooxkoH0v1Bdv-5" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="WmkqcMxoooxkoH0v1Bdv-1">
+        <mxCell id="WmkqcMxoooxkoH0v1Bdv-5" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="WmkqcMxoooxkoH0v1Bdv-1" vertex="1">
           <mxGeometry y="40" width="440" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="WmkqcMxoooxkoH0v1Bdv-6" value="管理员修改SPU预售活动" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;" vertex="1" parent="WmkqcMxoooxkoH0v1Bdv-5">
+        <mxCell id="WmkqcMxoooxkoH0v1Bdv-6" value="管理员修改SPU预售活动" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;" parent="WmkqcMxoooxkoH0v1Bdv-5" vertex="1">
           <mxGeometry width="180" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="WmkqcMxoooxkoH0v1Bdv-7" value="PUT /shops/{shopId}/presales/{id}" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;" vertex="1" parent="WmkqcMxoooxkoH0v1Bdv-5">
+        <mxCell id="WmkqcMxoooxkoH0v1Bdv-7" value="PUT /shops/{shopId}/presales/{id}" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;" parent="WmkqcMxoooxkoH0v1Bdv-5" vertex="1">
           <mxGeometry x="180" width="260" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="WmkqcMxoooxkoH0v1Bdv-8" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="WmkqcMxoooxkoH0v1Bdv-1">
+        <mxCell id="WmkqcMxoooxkoH0v1Bdv-8" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="WmkqcMxoooxkoH0v1Bdv-1" vertex="1">
           <mxGeometry y="80" width="440" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="WmkqcMxoooxkoH0v1Bdv-9" value="管理员逻辑删除SPU预售活动" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;" vertex="1" parent="WmkqcMxoooxkoH0v1Bdv-8">
+        <mxCell id="WmkqcMxoooxkoH0v1Bdv-9" value="管理员逻辑删除SPU预售活动" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;" parent="WmkqcMxoooxkoH0v1Bdv-8" vertex="1">
           <mxGeometry width="180" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="WmkqcMxoooxkoH0v1Bdv-10" value="DELETE /shops/{shopId}/presales/{id}" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;" vertex="1" parent="WmkqcMxoooxkoH0v1Bdv-8">
+        <mxCell id="WmkqcMxoooxkoH0v1Bdv-10" value="DELETE /shops/{shopId}/presales/{id}" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;" parent="WmkqcMxoooxkoH0v1Bdv-8" vertex="1">
           <mxGeometry x="180" width="260" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="IYxsneba1BlLnsKSMUV4-1" value="SPU状态" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="245" y="480" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="IYxsneba1BlLnsKSMUV4-2" value="SKU无状态" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="245" y="640" width="80" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

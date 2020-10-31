@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-10-31T12:17:50.879Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="bsk6nr3AQufVGLuqU2mQ" version="13.8.8" type="github">
+<mxfile host="app.diagrams.net" modified="2020-10-31T12:19:12.400Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="h2uY_01eXgFpqEBbnrFO" version="13.8.8" type="github">
   <diagram id="baO0POOujpLAagc7hYty" name="Page-1">
     <mxGraphModel dx="1038" dy="524" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -98,12 +98,6 @@
         </mxCell>
         <mxCell id="WmkqcMxoooxkoH0v1Bdv-10" value="DELETE /shops/{shopId}/presales/{id}" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;" parent="WmkqcMxoooxkoH0v1Bdv-8" vertex="1">
           <mxGeometry x="180" width="260" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="IYxsneba1BlLnsKSMUV4-1" value="SPU状态" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="245" y="480" width="70" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="IYxsneba1BlLnsKSMUV4-2" value="SKU无状态" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="245" y="640" width="80" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

@@ -1,1 +1,98 @@
-<mxfile host="app.diagrams.net" modified="2020-10-31T03:53:00.246Z" agent="5.0 (Windows)" version="13.8.8" etag="Tb5nGscka7pfvgNwvL78" type="github"><diagram id="v563zlm0SLZjSlG3yGTz">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2020-10-31T04:04:22.579Z" agent="5.0 (Windows)" etag="Fe4YUNKXSQm4Aon15lAE" version="13.8.8" type="github">
+  <diagram id="v563zlm0SLZjSlG3yGTz" name="Page-1">
+    <mxGraphModel dx="1038" dy="587" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-1" value="" style="shape=mxgraph.bpmn.shape;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;outline=end;symbol=terminate;shadow=0;" vertex="1" parent="1">
+          <mxGeometry x="880" y="160" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F_KAV1UvmDDsLSGFxsyZ-3" target="F_KAV1UvmDDsLSGFxsyZ-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;shadow=0;fillColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="90" y="44.38" width="11.25" height="11.25" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F_KAV1UvmDDsLSGFxsyZ-6" target="F_KAV1UvmDDsLSGFxsyZ-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;" edge="1" parent="1" source="F_KAV1UvmDDsLSGFxsyZ-6" target="F_KAV1UvmDDsLSGFxsyZ-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-6" value="未开始" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="340" y="145" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;" edge="1" parent="1" source="F_KAV1UvmDDsLSGFxsyZ-8" target="F_KAV1UvmDDsLSGFxsyZ-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-8" value="已关闭" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="690" y="330" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-9" value="&lt;span&gt;&lt;span&gt;平台管理员在某个时段下新建秒杀&lt;/span&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;" vertex="1" parent="1">
+          <mxGeometry x="130" y="10" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;exitX=0.842;exitY=0.017;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="F_KAV1UvmDDsLSGFxsyZ-13" target="F_KAV1UvmDDsLSGFxsyZ-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="441" y="270" />
+              <mxPoint x="750" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="F_KAV1UvmDDsLSGFxsyZ-13" target="F_KAV1UvmDDsLSGFxsyZ-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="430" />
+              <mxPoint x="750" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-12" style="edgeStyle=orthogonalEdgeStyle;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F_KAV1UvmDDsLSGFxsyZ-13" target="F_KAV1UvmDDsLSGFxsyZ-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-13" value="进行中" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="340" y="330" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-14" value="开始时间到" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;" vertex="1" parent="1">
+          <mxGeometry x="310" y="250" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-15" value="结束时间到" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;" vertex="1" parent="1">
+          <mxGeometry x="553" y="250" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-16" value="销售数量达到限额" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;" vertex="1" parent="1">
+          <mxGeometry x="538" y="340" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-17" value="&lt;span&gt;&lt;span&gt;平台管理员删除某个时段秒杀&lt;/span&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;" vertex="1" parent="1">
+          <mxGeometry x="530" y="150" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-18" value="秒杀活动结束" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;" vertex="1" parent="1">
+          <mxGeometry x="900" y="270" width="93" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F_KAV1UvmDDsLSGFxsyZ-21" target="F_KAV1UvmDDsLSGFxsyZ-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=1;" edge="1" parent="1" source="F_KAV1UvmDDsLSGFxsyZ-21" target="F_KAV1UvmDDsLSGFxsyZ-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-21" value="已创建" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="20" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-22" value="管理员开放秒杀信息" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="414" y="100" width="146" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-25" value="&lt;span&gt;&lt;span&gt;平台管理员删除某个时段秒杀&lt;/span&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;" vertex="1" parent="1">
+          <mxGeometry x="510" y="400" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-26" value="&lt;span&gt;&lt;span&gt;平台管理员在某个时段下新建秒杀:POST:&lt;/span&gt;&lt;/span&gt;&lt;span&gt;&lt;span&gt;&lt;span class=&quot;opblock-summary-method&quot;&gt;&lt;/span&gt;&lt;span class=&quot;opblock-summary-path&quot;&gt;&lt;a class=&quot;nostyle&quot;&gt;&lt;span&gt;​/timesegments​/{id}​/flashsales&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;" vertex="1" parent="1">
+          <mxGeometry x="210" y="460" width="380" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-27" value="&lt;span&gt;&lt;span&gt;平台管理员删除某个时段秒杀&lt;/span&gt;&lt;/span&gt;&lt;span&gt;&lt;span&gt;&lt;span class=&quot;opblock-summary-method&quot;&gt;&lt;/span&gt;&lt;span class=&quot;opblock-summary-path&quot;&gt;&lt;a class=&quot;nostyle&quot;&gt;&lt;span&gt;​:DELETE:/flashsales​/{id}&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;" vertex="1" parent="1">
+          <mxGeometry x="210" y="510" width="290" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-32" value="&lt;span&gt;&lt;span&gt;平台管理员删除秒杀时间段&lt;/span&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="667" y="35.63" width="160" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

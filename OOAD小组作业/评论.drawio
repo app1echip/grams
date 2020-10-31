@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-10-31T09:54:22.661Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="Vspfw86zYFgprRG7hr3E" version="13.8.8" type="github">
+<mxfile host="app.diagrams.net" modified="2020-10-31T10:00:40.296Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="kSC-QFCv72OJfiUbMTg0" version="13.8.8" type="github">
   <diagram id="5BeNAS73S_xliVZ2Vyy5" name="Page-1">
     <mxGraphModel dx="1038" dy="580" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -43,25 +43,25 @@
         <mxCell id="WKUkBrqWK0dkv4xaN6yW-14" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;" parent="1" vertex="1">
           <mxGeometry x="420" y="655" width="30" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="uONVkq85MDHpkA4lRqad-1" value="" style="shape=table;html=1;whiteSpace=wrap;startSize=0;container=1;collapsible=0;childLayout=tableLayout;" vertex="1" parent="1">
+        <mxCell id="uONVkq85MDHpkA4lRqad-1" value="" style="shape=table;html=1;whiteSpace=wrap;startSize=0;container=1;collapsible=0;childLayout=tableLayout;" parent="1" vertex="1">
           <mxGeometry x="30" y="760" width="580" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="uONVkq85MDHpkA4lRqad-2" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="uONVkq85MDHpkA4lRqad-1">
+        <mxCell id="uONVkq85MDHpkA4lRqad-2" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="uONVkq85MDHpkA4lRqad-1" vertex="1">
           <mxGeometry width="580" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="uONVkq85MDHpkA4lRqad-3" value="买家新增sku的评论" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;" vertex="1" parent="uONVkq85MDHpkA4lRqad-2">
+        <mxCell id="uONVkq85MDHpkA4lRqad-3" value="买家新增sku的评论" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;align=center;" parent="uONVkq85MDHpkA4lRqad-2" vertex="1">
           <mxGeometry width="289" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="uONVkq85MDHpkA4lRqad-4" value="POST /orderitems/{id}/comments" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;" vertex="1" parent="uONVkq85MDHpkA4lRqad-2">
+        <mxCell id="uONVkq85MDHpkA4lRqad-4" value="POST /orderitems/{id}/comments" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;align=center;" parent="uONVkq85MDHpkA4lRqad-2" vertex="1">
           <mxGeometry x="289" width="291" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="uONVkq85MDHpkA4lRqad-5" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="uONVkq85MDHpkA4lRqad-1">
+        <mxCell id="uONVkq85MDHpkA4lRqad-5" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="uONVkq85MDHpkA4lRqad-1" vertex="1">
           <mxGeometry y="40" width="580" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="uONVkq85MDHpkA4lRqad-6" value="管理员审核评论" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;" vertex="1" parent="uONVkq85MDHpkA4lRqad-5">
+        <mxCell id="uONVkq85MDHpkA4lRqad-6" value="管理员审核评论" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;align=center;" parent="uONVkq85MDHpkA4lRqad-5" vertex="1">
           <mxGeometry width="289" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="uONVkq85MDHpkA4lRqad-7" value="PUT /comments/{id}/confirm" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;" vertex="1" parent="uONVkq85MDHpkA4lRqad-5">
+        <mxCell id="uONVkq85MDHpkA4lRqad-7" value="PUT /comments/{id}/confirm" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;align=center;" parent="uONVkq85MDHpkA4lRqad-5" vertex="1">
           <mxGeometry x="289" width="291" height="40" as="geometry" />
         </mxCell>
       </root>

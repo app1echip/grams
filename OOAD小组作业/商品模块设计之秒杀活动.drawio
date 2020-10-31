@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-10-31T04:04:22.579Z" agent="5.0 (Windows)" etag="Fe4YUNKXSQm4Aon15lAE" version="13.8.8" type="github">
+<mxfile host="app.diagrams.net" modified="2020-10-31T04:05:04.774Z" agent="5.0 (Windows)" etag="sIpmslsnA1Cq3o7vGnGe" version="13.8.8" type="github">
   <diagram id="v563zlm0SLZjSlG3yGTz" name="Page-1">
     <mxGraphModel dx="1038" dy="587" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -87,10 +87,13 @@
           <mxGeometry x="210" y="460" width="380" height="30" as="geometry" />
         </mxCell>
         <mxCell id="F_KAV1UvmDDsLSGFxsyZ-27" value="&lt;span&gt;&lt;span&gt;平台管理员删除某个时段秒杀&lt;/span&gt;&lt;/span&gt;&lt;span&gt;&lt;span&gt;&lt;span class=&quot;opblock-summary-method&quot;&gt;&lt;/span&gt;&lt;span class=&quot;opblock-summary-path&quot;&gt;&lt;a class=&quot;nostyle&quot;&gt;&lt;span&gt;​:DELETE:/flashsales​/{id}&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;" vertex="1" parent="1">
-          <mxGeometry x="210" y="510" width="290" height="20" as="geometry" />
+          <mxGeometry x="210" y="520" width="290" height="20" as="geometry" />
         </mxCell>
         <mxCell id="F_KAV1UvmDDsLSGFxsyZ-32" value="&lt;span&gt;&lt;span&gt;平台管理员删除秒杀时间段&lt;/span&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="667" y="35.63" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="F_KAV1UvmDDsLSGFxsyZ-33" value="&lt;span&gt;&lt;span&gt;平台管理员删除秒杀时间段DELETE:/flashsale/timesegments/{id}&lt;/span&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="210" y="490" width="350" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

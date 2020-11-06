@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-11-06T13:50:40.443Z" agent="5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" etag="xRyfTCf8SN2FJGJtSAlG" version="13.9.2" type="github">
+<mxfile host="app.diagrams.net" modified="2020-11-06T13:54:08.032Z" agent="5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" etag="pbYeuopg7Tpe_HJXMn-O" version="13.9.2" type="github">
   <diagram id="yHeF4_bzrxLTXPKwY5sZ" name="Page-1">
     <mxGraphModel dx="1376" dy="1894" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -151,8 +151,8 @@
         <mxCell id="d_4f9FTK0BvBkenBgBJO-138" value="&lt;span&gt;U19:新建&lt;/span&gt;&lt;span&gt;优惠活动&lt;/span&gt;&lt;span&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
           <mxGeometry x="400" y="60" width="110" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="d_4f9FTK0BvBkenBgBJO-139" value="&lt;span&gt;U29:&lt;/span&gt;&lt;span&gt;关闭优惠活动&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
-          <mxGeometry x="575" y="1090" width="110" height="20" as="geometry" />
+        <mxCell id="d_4f9FTK0BvBkenBgBJO-139" value="&lt;span&gt;U29:&lt;/span&gt;&lt;span&gt;关闭活动&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+          <mxGeometry x="585" y="1090" width="90" height="20" as="geometry" />
         </mxCell>
         <mxCell id="0iyVtUYct8NkVclycfW--31" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;" parent="1" source="8tCWAQmAQTB_diqJKxat-45" target="d_4f9FTK0BvBkenBgBJO-35" edge="1">
           <mxGeometry relative="1" as="geometry" />

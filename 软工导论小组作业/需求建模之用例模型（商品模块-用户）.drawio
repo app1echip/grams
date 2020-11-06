@@ -1,10 +1,10 @@
-<mxfile host="app.diagrams.net" modified="2020-11-06T13:09:08.351Z" agent="5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" etag="GNYGERKI-npIROY1GN72" version="13.9.2" type="github">
+<mxfile host="app.diagrams.net" modified="2020-11-06T13:13:36.686Z" agent="5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" etag="P_tW8PQggHLzCho6O29B" version="13.9.2" type="github">
   <diagram id="yHeF4_bzrxLTXPKwY5sZ" name="Page-1">
     <mxGraphModel dx="2203" dy="725" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="8tCWAQmAQTB_diqJKxat-3" value="客户" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+        <mxCell id="8tCWAQmAQTB_diqJKxat-3" value="用户" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
           <mxGeometry x="-800" y="320" width="50" height="90" as="geometry" />
         </mxCell>
         <mxCell id="_Clz8MUd7i8ZwyRCdDxm-4" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=none;endFill=0;" parent="1" source="8tCWAQmAQTB_diqJKxat-12" edge="1">

@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-11-17T15:01:31.143Z" agent="5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" etag="jfR-hYKR23h6xIf3Pewg" version="13.9.8" type="github">
+<mxfile host="app.diagrams.net" modified="2020-11-17T15:03:41.330Z" agent="5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" etag="1mz1i9JWU7BjDHoS8w3y" version="13.9.8" type="github">
   <diagram id="yHeF4_bzrxLTXPKwY5sZ" name="Page-1">
     <mxGraphModel dx="549" dy="725" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -228,19 +228,19 @@
           <mxGeometry x="1502.5" y="960" width="95" height="70" as="geometry" />
         </mxCell>
         <mxCell id="63zYLMzpXl-52VD7_UUg-24" value="&lt;span&gt;U:关闭秒杀&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
-          <mxGeometry x="1611" y="990" width="80" height="20" as="geometry" />
+          <mxGeometry x="1605" y="990" width="80" height="20" as="geometry" />
         </mxCell>
         <mxCell id="63zYLMzpXl-52VD7_UUg-26" value="" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="1502.5" y="1050" width="95" height="70" as="geometry" />
         </mxCell>
         <mxCell id="63zYLMzpXl-52VD7_UUg-28" value="&lt;span&gt;U:修改秒杀内容&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
-          <mxGeometry x="1615" y="1075" width="100" height="20" as="geometry" />
+          <mxGeometry x="1605" y="1075" width="100" height="20" as="geometry" />
         </mxCell>
         <mxCell id="63zYLMzpXl-52VD7_UUg-29" value="" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1500" y="1140" width="95" height="70" as="geometry" />
+          <mxGeometry x="1505" y="1144" width="95" height="70" as="geometry" />
         </mxCell>
         <mxCell id="63zYLMzpXl-52VD7_UUg-31" value="&lt;span&gt;U:管理秒杀商品&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
-          <mxGeometry x="1614" y="1165" width="100" height="20" as="geometry" />
+          <mxGeometry x="1605" y="1169" width="100" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

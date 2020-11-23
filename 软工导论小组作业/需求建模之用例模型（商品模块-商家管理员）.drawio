@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-11-17T14:18:11.910Z" agent="5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" etag="4jQAT-nm0PCT3OiViz8Q" version="13.9.8" type="github">
+<mxfile host="app.diagrams.net" modified="2020-11-23T04:37:05.240Z" agent="5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" etag="lf_fdbAU76ftju81Vlk5" version="13.10.0" type="github">
   <diagram id="yHeF4_bzrxLTXPKwY5sZ" name="Page-1">
-    <mxGraphModel dx="1376" dy="1894" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1376" dy="1923" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -33,14 +33,6 @@
         </mxCell>
         <mxCell id="0iyVtUYct8NkVclycfW--25" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="kDSBqB-Ltwl2de3J7nG--3" target="8tCWAQmAQTB_diqJKxat-33" edge="1">
           <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="0iyVtUYct8NkVclycfW--19" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=none;endFill=0;exitX=0;exitY=0;exitDx=0;exitDy=0;" parent="1" source="8tCWAQmAQTB_diqJKxat-36" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="290" y="550" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8tCWAQmAQTB_diqJKxat-36" value="" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="405" y="670" width="100" height="70" as="geometry" />
         </mxCell>
         <mxCell id="0iyVtUYct8NkVclycfW--3" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;" parent="1" source="8tCWAQmAQTB_diqJKxat-37" target="d_4f9FTK0BvBkenBgBJO-35" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -151,9 +143,6 @@
         </mxCell>
         <mxCell id="d_4f9FTK0BvBkenBgBJO-137" value="&lt;span&gt;U:&lt;/span&gt;&lt;span&gt;创建优惠券&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
           <mxGeometry x="1075" y="450" width="90" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="d_4f9FTK0BvBkenBgBJO-139" value="&lt;span&gt;U:查看&lt;/span&gt;&lt;span&gt;活动&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
-          <mxGeometry x="414" y="750" width="80" height="20" as="geometry" />
         </mxCell>
         <mxCell id="0iyVtUYct8NkVclycfW--31" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;" parent="1" source="8tCWAQmAQTB_diqJKxat-45" target="8tCWAQmAQTB_diqJKxat-55" edge="1">
           <mxGeometry relative="1" as="geometry" />

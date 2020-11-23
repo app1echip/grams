@@ -1,47 +1,101 @@
-<mxfile host="app.diagrams.net" modified="2020-11-23T12:45:34.096Z" agent="5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" etag="N1WzJVDmkGuP2mw21Rp5" version="13.10.1" type="github">
+<mxfile host="app.diagrams.net" modified="2020-11-23T14:12:56.275Z" agent="5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" etag="PiKBt4CfDsky4P-ORWiH" version="13.10.1" type="github">
   <diagram id="tlwxFYN7nEPO611R5yER" name="Page-1">
     <mxGraphModel dx="1376" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="JlzYUt2903bJceBeCsOK-10" value="商品,活动,券,评论" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;curved=1;" parent="1" source="JlzYUt2903bJceBeCsOK-1" target="JlzYUt2903bJceBeCsOK-2" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="470" y="457" as="sourcePoint" />
-            <Array as="points">
-              <mxPoint x="330" y="376" />
-              <mxPoint x="330" y="300" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
         <mxCell id="JlzYUt2903bJceBeCsOK-1" value="商品管理系统" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;" parent="1" vertex="1">
           <mxGeometry x="310" y="360" width="230" height="110" as="geometry" />
-        </mxCell>
-        <mxCell id="JlzYUt2903bJceBeCsOK-8" value="评论,评论删除,领券" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;entryX=0.109;entryY=0.164;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;" parent="1" source="JlzYUt2903bJceBeCsOK-2" target="JlzYUt2903bJceBeCsOK-1" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="220" y="315" />
-              <mxPoint x="220" y="378" />
-            </Array>
-          </mxGeometry>
         </mxCell>
         <mxCell id="JlzYUt2903bJceBeCsOK-2" value="用户" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="50" y="270" width="150" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="JlzYUt2903bJceBeCsOK-6" value="评论审核,对象下线控制,全平台券" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;edgeStyle=orthogonalEdgeStyle;curved=1;" parent="1" source="JlzYUt2903bJceBeCsOK-4" target="JlzYUt2903bJceBeCsOK-1" edge="1">
-          <mxGeometry relative="1" as="geometry">
+        <mxCell id="JlzYUt2903bJceBeCsOK-6" value="审核,上下线控制,创建,修改信息" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;edgeStyle=orthogonalEdgeStyle;curved=1;" parent="1" source="JlzYUt2903bJceBeCsOK-4" target="JlzYUt2903bJceBeCsOK-1" edge="1">
+          <mxGeometry x="0.0273" y="-10" relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="675" y="370" />
             </Array>
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="JlzYUt2903bJceBeCsOK-4" value="平台管理员" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="600" y="270" width="150" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="JlzYUt2903bJceBeCsOK-7" value="商品,活动.券,上下线控制" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="JlzYUt2903bJceBeCsOK-5" target="JlzYUt2903bJceBeCsOK-1" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="JlzYUt2903bJceBeCsOK-5" value="店铺管理员" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="350" y="570" width="150" height="60" as="geometry" />
+          <mxGeometry x="350" y="590" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bQa1RXHOdT9MGAUodeXR-2" value="查看、领券、请求" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;exitX=0.88;exitY=1.017;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="JlzYUt2903bJceBeCsOK-2">
+          <mxGeometry x="0.2211" y="10" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="182" y="410" />
+              <mxPoint x="311" y="410" />
+            </Array>
+            <mxPoint x="210" y="325" as="sourcePoint" />
+            <mxPoint x="311" y="410" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bQa1RXHOdT9MGAUodeXR-4" value="评论信息" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="JlzYUt2903bJceBeCsOK-2">
+          <mxGeometry x="0.2986" y="10" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="125" y="430" />
+            </Array>
+            <mxPoint x="192" y="341.02" as="sourcePoint" />
+            <mxPoint x="310" y="429" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bQa1RXHOdT9MGAUodeXR-7" value="优惠券、商品、活动、品类、审核结果信息" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.348;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;curved=1;exitPerimeter=0;" edge="1" parent="1" source="JlzYUt2903bJceBeCsOK-1" target="JlzYUt2903bJceBeCsOK-2">
+          <mxGeometry x="0.0714" y="20" relative="1" as="geometry">
+            <mxPoint x="353.68272016354695" y="386.1091270347399" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="390" y="270" />
+            </Array>
+            <mxPoint x="210" y="310" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bQa1RXHOdT9MGAUodeXR-9" value="作废请求" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;edgeStyle=orthogonalEdgeStyle;curved=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="JlzYUt2903bJceBeCsOK-4" target="JlzYUt2903bJceBeCsOK-1">
+          <mxGeometry x="0.301" y="-5" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="713" y="415" />
+            </Array>
+            <mxPoint x="685" y="340" as="sourcePoint" />
+            <mxPoint x="550" y="415" as="targetPoint" />
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bQa1RXHOdT9MGAUodeXR-10" value="上下线控制,创建,修改信息" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;curved=1;exitX=0.333;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="JlzYUt2903bJceBeCsOK-5" target="JlzYUt2903bJceBeCsOK-1">
+          <mxGeometry x="0.0273" y="-10" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="380" y="590" />
+              <mxPoint x="380" y="470" />
+            </Array>
+            <mxPoint x="390" y="590" as="sourcePoint" />
+            <mxPoint x="501.12035107624797" y="380" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bQa1RXHOdT9MGAUodeXR-12" value="操作结果信息" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;edgeStyle=orthogonalEdgeStyle;curved=1;exitX=0.591;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitPerimeter=0;" edge="1" parent="1" source="JlzYUt2903bJceBeCsOK-1" target="JlzYUt2903bJceBeCsOK-4">
+          <mxGeometry x="0.2916" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="446" y="300" />
+            </Array>
+            <mxPoint x="722.5" y="340" as="sourcePoint" />
+            <mxPoint x="550" y="425" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bQa1RXHOdT9MGAUodeXR-13" value="操作结果信息" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;edgeStyle=orthogonalEdgeStyle;curved=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="JlzYUt2903bJceBeCsOK-5">
+          <mxGeometry x="-0.2443" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="506" y="471" />
+              <mxPoint x="506" y="590" />
+            </Array>
+            <mxPoint x="470" y="471" as="sourcePoint" />
+            <mxPoint x="610" y="310" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>

@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-12-20T18:54:28.372Z" agent="5.0 (Windows)" etag="OAS2cyGg12o8-g2hAceT" version="14.1.1" type="github">
+<mxfile host="app.diagrams.net" modified="2020-12-20T18:56:46.498Z" agent="5.0 (Windows)" etag="HoLIcOzxKbid6NojIvFf" version="14.1.1" type="github">
   <diagram id="x5E5y22HB3m255_ReXKd" name="Page-1">
-    <mxGraphModel dx="2048" dy="691" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2310" dy="839" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -31,10 +31,10 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="rrSZmSB8H3wMyUmLUTJx-18" value="Dao:PresaleDao" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="690" y="40" width="480" height="3050" as="geometry" />
+          <mxGeometry x="690" y="40" width="480" height="3390" as="geometry" />
         </mxCell>
         <mxCell id="rrSZmSB8H3wMyUmLUTJx-19" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="rrSZmSB8H3wMyUmLUTJx-18">
-          <mxGeometry x="230" y="220" width="20" height="2220" as="geometry" />
+          <mxGeometry x="230" y="220" width="20" height="3050" as="geometry" />
         </mxCell>
         <mxCell id="rrSZmSB8H3wMyUmLUTJx-67" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="rrSZmSB8H3wMyUmLUTJx-18">
           <mxGeometry x="250" y="310" width="10" height="40" as="geometry" />
@@ -339,6 +339,18 @@
         </mxCell>
         <mxCell id="rrSZmSB8H3wMyUmLUTJx-144" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;dashed=1;" vertex="1" parent="1">
           <mxGeometry x="780" y="2082" width="560" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="rrSZmSB8H3wMyUmLUTJx-145" value="OPT" style="shape=umlFrame;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="480" width="730" height="2150" as="geometry" />
+        </mxCell>
+        <mxCell id="rrSZmSB8H3wMyUmLUTJx-146" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="1090" width="730" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="rrSZmSB8H3wMyUmLUTJx-147" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="1680" width="730" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="rrSZmSB8H3wMyUmLUTJx-148" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="2240" width="730" height="8" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

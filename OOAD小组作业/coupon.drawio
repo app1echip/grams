@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-12-20T21:02:21.221Z" agent="5.0 (Windows)" etag="eHN7bQZZ8povxgsa99TY" version="14.1.1" type="github">
+<mxfile host="app.diagrams.net" modified="2020-12-20T21:03:31.306Z" agent="5.0 (Windows)" etag="9v6j9-fNAAOUChwp7W1l" version="14.1.1" type="github">
   <diagram id="6f5KVJECECar6YocEBXC" name="Page-1">
     <mxGraphModel dx="1865" dy="587" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -28,7 +28,7 @@
           <mxGeometry x="827" y="40" width="170" height="1520" as="geometry" />
         </mxCell>
         <mxCell id="zYojqFAb5I6xokVoxq5k-84" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="zYojqFAb5I6xokVoxq5k-4">
-          <mxGeometry x="75" y="480" width="20" height="1000" as="geometry" />
+          <mxGeometry x="75" y="480" width="20" height="820" as="geometry" />
         </mxCell>
         <mxCell id="zYojqFAb5I6xokVoxq5k-5" value="Mapper:FalshSaleMapper" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
           <mxGeometry x="1484" y="40" width="170" height="1520" as="geometry" />
@@ -46,7 +46,7 @@
           <mxGeometry x="1156" y="40" width="170" height="1520" as="geometry" />
         </mxCell>
         <mxCell id="zYojqFAb5I6xokVoxq5k-85" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="zYojqFAb5I6xokVoxq5k-55">
-          <mxGeometry x="75" y="700" width="20" height="800" as="geometry" />
+          <mxGeometry x="75" y="700" width="20" height="220" as="geometry" />
         </mxCell>
         <mxCell id="zYojqFAb5I6xokVoxq5k-56" value="Mapper:GoodSkuMapper" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
           <mxGeometry x="1750" y="40" width="170" height="1520" as="geometry" />
@@ -308,6 +308,9 @@
         </mxCell>
         <mxCell id="zYojqFAb5I6xokVoxq5k-127" value="20:return:OK" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="276.25" y="1490" width="235" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="zYojqFAb5I6xokVoxq5k-128" value="AddItemToFlashsale" style="shape=umlFrame;whiteSpace=wrap;html=1;width=170;height=30;" vertex="1" parent="1">
+          <mxGeometry x="-190" width="2190" height="1670" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

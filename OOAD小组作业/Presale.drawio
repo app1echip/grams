@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-12-20T18:56:46.498Z" agent="5.0 (Windows)" etag="HoLIcOzxKbid6NojIvFf" version="14.1.1" type="github">
+<mxfile host="app.diagrams.net" modified="2020-12-20T19:00:45.864Z" agent="5.0 (Windows)" etag="MIAqQ_4cLUD5n-E4mxhv" version="14.1.1" type="github">
   <diagram id="x5E5y22HB3m255_ReXKd" name="Page-1">
-    <mxGraphModel dx="2310" dy="839" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2048" dy="691" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -69,6 +69,39 @@
             <mxPoint x="255" y="590" as="sourcePoint" />
             <Array as="points">
               <mxPoint x="280" y="590" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rrSZmSB8H3wMyUmLUTJx-149" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="rrSZmSB8H3wMyUmLUTJx-18">
+          <mxGeometry x="250" y="2318" width="10" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rrSZmSB8H3wMyUmLUTJx-150" value="&lt;div&gt;GoodsSkuIdEqualTo(vo.SkuId()).&lt;/div&gt;&lt;div&gt;StateEqualTo(ONLINE);&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;entryX=1;entryY=0;" edge="1" target="rrSZmSB8H3wMyUmLUTJx-149" parent="rrSZmSB8H3wMyUmLUTJx-18">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="255" y="2298" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="280" y="2298" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rrSZmSB8H3wMyUmLUTJx-151" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="rrSZmSB8H3wMyUmLUTJx-18">
+          <mxGeometry x="250" y="2450" width="10" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rrSZmSB8H3wMyUmLUTJx-152" value="&lt;div&gt;GoodsShopIdEqualTo(vo.ShopId()).&lt;/div&gt;&lt;div&gt;StateEqualTo(ONLINE);&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;entryX=1;entryY=0;" edge="1" target="rrSZmSB8H3wMyUmLUTJx-151" parent="rrSZmSB8H3wMyUmLUTJx-18">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="255" y="2430" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="280" y="2430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rrSZmSB8H3wMyUmLUTJx-153" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="rrSZmSB8H3wMyUmLUTJx-18">
+          <mxGeometry x="250" y="2560" width="10" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rrSZmSB8H3wMyUmLUTJx-154" value="&lt;div&gt;StateEqualTo(ONLINE);&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;entryX=1;entryY=0;" edge="1" target="rrSZmSB8H3wMyUmLUTJx-153" parent="rrSZmSB8H3wMyUmLUTJx-18">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="255" y="2540" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="280" y="2540" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -180,7 +213,7 @@
         <mxCell id="rrSZmSB8H3wMyUmLUTJx-102" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="1">
           <mxGeometry x="940" y="1249" width="10" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="rrSZmSB8H3wMyUmLUTJx-103" value="&lt;div&gt;GoodsSkuIdEqualTo(vo.ShopId())&lt;/div&gt;&lt;div&gt;StateEqualTo(ONLINE).&lt;/div&gt;&lt;div&gt;BeginTimeGreaterThan(now()&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;entryX=1;entryY=0;" edge="1" parent="1" target="rrSZmSB8H3wMyUmLUTJx-102">
+        <mxCell id="rrSZmSB8H3wMyUmLUTJx-103" value="&lt;div&gt;GoodsShpoIdEqualTo(vo.ShopId())&lt;/div&gt;&lt;div&gt;StateEqualTo(ONLINE).&lt;/div&gt;&lt;div&gt;BeginTimeGreaterThan(now()&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;entryX=1;entryY=0;" edge="1" parent="1" target="rrSZmSB8H3wMyUmLUTJx-102">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="945" y="1229" as="sourcePoint" />
             <Array as="points">
@@ -189,7 +222,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="rrSZmSB8H3wMyUmLUTJx-104" value="OPT" style="shape=umlFrame;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="780" y="1169" width="560" height="480" as="geometry" />
+          <mxGeometry x="780" y="1160" width="560" height="480" as="geometry" />
         </mxCell>
         <mxCell id="rrSZmSB8H3wMyUmLUTJx-105" value="timeline = 0" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="820" y="1199" width="100" height="20" as="geometry" />
@@ -209,7 +242,7 @@
         <mxCell id="rrSZmSB8H3wMyUmLUTJx-110" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="1">
           <mxGeometry x="940" y="1359" width="10" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="rrSZmSB8H3wMyUmLUTJx-111" value="&lt;div&gt;GoodsSkuIdEqualTo(vo.ShopId())&lt;/div&gt;&lt;div&gt;StateEqualTo(ONLINE)&lt;/div&gt;&lt;div&gt;BeginTimeGreaterThan(now().plusDays(1).atTime(LocalTime.MIN))&lt;/div&gt;&lt;div&gt;BeginTimeLessThan(now().plusDays(1).atTime(LocalTime.MAX));&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;entryX=1;entryY=0;" edge="1" parent="1" target="rrSZmSB8H3wMyUmLUTJx-110">
+        <mxCell id="rrSZmSB8H3wMyUmLUTJx-111" value="&lt;div&gt;GoodsShopIdEqualTo(vo.ShopId())&lt;/div&gt;&lt;div&gt;StateEqualTo(ONLINE)&lt;/div&gt;&lt;div&gt;BeginTimeGreaterThan(now().plusDays(1).atTime(LocalTime.MIN))&lt;/div&gt;&lt;div&gt;BeginTimeLessThan(now().plusDays(1).atTime(LocalTime.MAX));&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;entryX=1;entryY=0;" edge="1" parent="1" target="rrSZmSB8H3wMyUmLUTJx-110">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="945" y="1339" as="sourcePoint" />
             <Array as="points">
@@ -223,7 +256,7 @@
         <mxCell id="rrSZmSB8H3wMyUmLUTJx-113" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="1">
           <mxGeometry x="940" y="1479" width="10" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="rrSZmSB8H3wMyUmLUTJx-114" value="&lt;div&gt;GoodsSkuIdEqualTo(vo.ShopId())&lt;/div&gt;&lt;div&gt;StateEqualTo(ONLINE)&lt;/div&gt;&lt;div&gt;BeginTimeLessThan(now())&lt;/div&gt;&lt;div&gt;EndTimeGreaterThan(now());&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;entryX=1;entryY=0;" edge="1" parent="1" target="rrSZmSB8H3wMyUmLUTJx-113">
+        <mxCell id="rrSZmSB8H3wMyUmLUTJx-114" value="&lt;div&gt;GoodsShopIdEqualTo(vo.ShopId())&lt;/div&gt;&lt;div&gt;StateEqualTo(ONLINE)&lt;/div&gt;&lt;div&gt;BeginTimeLessThan(now())&lt;/div&gt;&lt;div&gt;EndTimeGreaterThan(now());&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;entryX=1;entryY=0;" edge="1" parent="1" target="rrSZmSB8H3wMyUmLUTJx-113">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="945" y="1459" as="sourcePoint" />
             <Array as="points">
@@ -237,7 +270,7 @@
         <mxCell id="rrSZmSB8H3wMyUmLUTJx-116" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="1">
           <mxGeometry x="940" y="1589" width="10" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="rrSZmSB8H3wMyUmLUTJx-117" value="&lt;div&gt;GoodsSkuIdEqualTo(vo.ShopId())&lt;/div&gt;&lt;div&gt;StateEqualTo(ONLINE)&lt;/div&gt;&lt;div&gt;EndTimeLessThan(now());&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;entryX=1;entryY=0;" edge="1" parent="1" target="rrSZmSB8H3wMyUmLUTJx-116">
+        <mxCell id="rrSZmSB8H3wMyUmLUTJx-117" value="&lt;div&gt;GoodsShopIdEqualTo(vo.ShopId())&lt;/div&gt;&lt;div&gt;StateEqualTo(ONLINE)&lt;/div&gt;&lt;div&gt;EndTimeLessThan(now());&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;entryX=1;entryY=0;" edge="1" parent="1" target="rrSZmSB8H3wMyUmLUTJx-116">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="945" y="1569" as="sourcePoint" />
             <Array as="points">
@@ -341,7 +374,7 @@
           <mxGeometry x="780" y="2082" width="560" height="8" as="geometry" />
         </mxCell>
         <mxCell id="rrSZmSB8H3wMyUmLUTJx-145" value="OPT" style="shape=umlFrame;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="680" y="480" width="730" height="2150" as="geometry" />
+          <mxGeometry x="1610" y="489" width="730" height="1780" as="geometry" />
         </mxCell>
         <mxCell id="rrSZmSB8H3wMyUmLUTJx-146" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;dashed=1;" vertex="1" parent="1">
           <mxGeometry x="680" y="1090" width="730" height="8" as="geometry" />

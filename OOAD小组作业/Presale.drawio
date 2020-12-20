@@ -1,1 +1,31 @@
-<mxfile host="app.diagrams.net" modified="2020-12-20T17:59:27.251Z" agent="5.0 (Windows)" version="14.1.1" etag="xC3NeIZmuiILikvCSSn7" type="github"><diagram id="x5E5y22HB3m255_ReXKd">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2020-12-20T18:18:41.995Z" agent="5.0 (Windows)" etag="9vRR-DvtLnqvWOomy6X-" version="14.1.1" type="github">
+  <diagram id="x5E5y22HB3m255_ReXKd" name="Page-1">
+    <mxGraphModel dx="3793" dy="1677" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="rrSZmSB8H3wMyUmLUTJx-1" value="&lt;div&gt;service:PresaleService&lt;/div&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="180" y="40" width="340" height="1280" as="geometry" />
+        </mxCell>
+        <mxCell id="rrSZmSB8H3wMyUmLUTJx-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="rrSZmSB8H3wMyUmLUTJx-1">
+          <mxGeometry x="160" y="150" width="20" height="1010" as="geometry" />
+        </mxCell>
+        <mxCell id="rrSZmSB8H3wMyUmLUTJx-6" value="Mapper:GrouponActivityMapper" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="40" width="200" height="1280" as="geometry" />
+        </mxCell>
+        <mxCell id="rrSZmSB8H3wMyUmLUTJx-11" value="Controller:PresaleController" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="-190" y="40" width="180" height="1280" as="geometry" />
+        </mxCell>
+        <mxCell id="rrSZmSB8H3wMyUmLUTJx-12" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="rrSZmSB8H3wMyUmLUTJx-11">
+          <mxGeometry x="80" y="70" width="20" height="1120" as="geometry" />
+        </mxCell>
+        <mxCell id="rrSZmSB8H3wMyUmLUTJx-18" value="Dao:PresaleDao" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="690" y="40" width="160" height="1280" as="geometry" />
+        </mxCell>
+        <mxCell id="rrSZmSB8H3wMyUmLUTJx-19" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="rrSZmSB8H3wMyUmLUTJx-18">
+          <mxGeometry x="70" y="190" width="20" height="870" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

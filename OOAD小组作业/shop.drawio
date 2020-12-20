@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-12-20T20:06:25.075Z" agent="5.0 (Windows)" etag="rGY7ybE3gpJfho_4DNTH" version="14.1.1" type="github">
+<mxfile host="app.diagrams.net" modified="2020-12-20T20:07:28.436Z" agent="5.0 (Windows)" etag="aaDn3xOTAu2I--RZ0x7C" version="14.1.1" type="github">
   <diagram id="lo4UK6vVF-4UpODu58wT" name="Page-1">
     <mxGraphModel dx="1865" dy="587" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -263,6 +263,9 @@
         </mxCell>
         <mxCell id="t8Lj_CVc9r9Yu0F6UWp1-56" value="17:return:OK" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="290" y="1500" width="235" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="t8Lj_CVc9r9Yu0F6UWp1-57" value="ModifyShopInfo" style="shape=umlFrame;whiteSpace=wrap;html=1;width=140;height=30;" vertex="1" parent="1">
+          <mxGeometry x="-170" width="1600" height="1590" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

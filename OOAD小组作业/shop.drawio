@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-12-20T19:40:37.402Z" agent="5.0 (Windows)" etag="adKIIwP0QoW6waXYWipN" version="14.1.1" type="github">
+<mxfile host="app.diagrams.net" modified="2020-12-20T19:44:06.597Z" agent="5.0 (Windows)" etag="61oMMIleBleZkS1wQS5N" version="14.1.1" type="github">
   <diagram id="lo4UK6vVF-4UpODu58wT" name="Page-1">
     <mxGraphModel dx="1865" dy="587" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -22,8 +22,8 @@
         <mxCell id="t8Lj_CVc9r9Yu0F6UWp1-6" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="555" y="160" width="20" height="650" as="geometry" />
         </mxCell>
-        <mxCell id="t8Lj_CVc9r9Yu0F6UWp1-7" value="modifyShopInfo(departId,shopid,ShopCreatorValidation)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="70" y="140" width="40" height="20" as="geometry" />
+        <mxCell id="t8Lj_CVc9r9Yu0F6UWp1-7" value="1:modifyShopInfo(departId,shopid,ShopCreatorValidation)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-120" y="140" width="360" height="20" as="geometry" />
         </mxCell>
         <mxCell id="t8Lj_CVc9r9Yu0F6UWp1-9" value="" style="endArrow=classic;html=1;" edge="1" parent="1" target="t8Lj_CVc9r9Yu0F6UWp1-1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -33,6 +33,24 @@
               <mxPoint x="110" y="170" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="t8Lj_CVc9r9Yu0F6UWp1-10" value="" style="endArrow=none;html=1;dashed=1;startArrow=classic;startFill=1;endFill=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="5.5" y="250" as="sourcePoint" />
+            <mxPoint x="240" y="250" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="105.5" y="250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="t8Lj_CVc9r9Yu0F6UWp1-11" value="2:return:RESOURCE_ID_OUTSCOPE" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="20" y="260" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="t8Lj_CVc9r9Yu0F6UWp1-12" value="alt" style="shape=umlFrame;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-130" y="180" width="430" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="t8Lj_CVc9r9Yu0F6UWp1-13" value="!departId.equals(shopId) &amp;amp;&amp;amp; !departId.equals(0L)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-95" y="190" width="310" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

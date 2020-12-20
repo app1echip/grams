@@ -1,17 +1,14 @@
-<mxfile host="app.diagrams.net" modified="2020-12-20T20:51:50.710Z" agent="5.0 (Windows)" etag="qZFd2HlA1ES51R6qxnp6" version="14.1.1" type="github">
+<mxfile host="app.diagrams.net" modified="2020-12-20T20:54:10.731Z" agent="5.0 (Windows)" etag="8pXr2zJSqTMka9fXIyt3" version="14.1.1" type="github">
   <diagram id="6f5KVJECECar6YocEBXC" name="Page-1">
     <mxGraphModel dx="1692" dy="489" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="zYojqFAb5I6xokVoxq5k-1" value="Controller:FlashSaleController" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="160" y="40" width="455" height="1520" as="geometry" />
+          <mxGeometry x="20" y="40" width="455" height="1520" as="geometry" />
         </mxCell>
         <mxCell id="zYojqFAb5I6xokVoxq5k-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="zYojqFAb5I6xokVoxq5k-1">
-          <mxGeometry x="75" y="90" width="20" height="1420" as="geometry" />
-        </mxCell>
-        <mxCell id="zYojqFAb5I6xokVoxq5k-108" value="alt" style="shape=umlFrame;whiteSpace=wrap;html=1;" vertex="1" parent="zYojqFAb5I6xokVoxq5k-1">
-          <mxGeometry x="155" y="860" width="300" height="200" as="geometry" />
+          <mxGeometry x="217.5" y="120" width="20" height="1420" as="geometry" />
         </mxCell>
         <mxCell id="zYojqFAb5I6xokVoxq5k-3" value="Service:FlashSaleService" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
           <mxGeometry x="480" y="40" width="170" height="1520" as="geometry" />
@@ -206,10 +203,10 @@
           <mxGeometry x="960" y="910" width="240" height="20" as="geometry" />
         </mxCell>
         <mxCell id="zYojqFAb5I6xokVoxq5k-102" value="sale == null || sku == null" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="390" y="930" width="150" height="20" as="geometry" />
+          <mxGeometry x="390" y="950" width="150" height="20" as="geometry" />
         </mxCell>
         <mxCell id="zYojqFAb5I6xokVoxq5k-103" value="13:return:RESOURCE_ID_NOTEXIST" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="300" y="970" width="240" height="20" as="geometry" />
+          <mxGeometry x="310" y="1010" width="240" height="20" as="geometry" />
         </mxCell>
         <mxCell id="zYojqFAb5I6xokVoxq5k-107" value="" style="endArrow=none;html=1;startArrow=classic;startFill=1;endFill=0;dashed=1;" edge="1" parent="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -219,6 +216,9 @@
               <mxPoint x="420.5" y="1000" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="zYojqFAb5I6xokVoxq5k-110" value="alt" style="shape=umlFrame;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="930" width="430" height="120" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
